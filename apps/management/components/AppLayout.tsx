@@ -18,7 +18,7 @@ export function AppLayout({ children }: AppLayoutProps) {
   return (
     <SidebarProvider className="bg-sidebar">
       <AppSidebar />
-        <SidebarInset className="m-4 rounded-xl shadow-sm">
+        <SidebarInset className="m-4 ml-0 rounded-xl shadow-sm">
           <header className="flex h-16 shrink-0 items-center gap-2">
             <div className="flex items-center gap-2 px-4">
               <SidebarTrigger className="-ml-1" />
