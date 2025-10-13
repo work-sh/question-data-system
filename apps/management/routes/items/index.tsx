@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/PageHeader"
 import { PageContainer } from "@/components/PageContainer"
 import { SearchFilter } from "@/components/SearchFilter"
 
-export const Route = createFileRoute('/question/')({
+export const Route = createFileRoute('/items/')({
   component: Questions,
 })
 

@@ -9,7 +9,7 @@ import { PageHeader } from "@/components/PageHeader"
 import { PageContainer } from "@/components/PageContainer"
 import { Link } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/question/create')({
+export const Route = createFileRoute('/items/create')({
   component: CreateQuestionPage,
 })
 

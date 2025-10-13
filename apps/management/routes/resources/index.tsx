@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/PageHeader"
 import { PageContainer } from "@/components/PageContainer"
 import { SearchFilter } from "@/components/SearchFilter"
 
-export const Route = createFileRoute('/sources/')({
+export const Route = createFileRoute('/resources/')({
   component: ItemBankPage,
 })
 

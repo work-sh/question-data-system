@@ -38,31 +38,31 @@ const data = {
   navMain: [
     {
       title: "대시보드",
-      url: "/",
+      url: "/dashboard",
       icon: Home,
       isActive: false,
     },
     {
       title: "사용자 관리",
-      url: "/users",
+      url: "/user-management",
       icon: Users,
       isActive: false,
     },
     {
       title: "문항 관리",
-      url: "/question",
+      url: "/items",
       icon: BookOpen,
       isActive: false,
     },
     {
       title: "평가세트 관리",
-      url: "/assessment-sets",
+      url: "/assessments",
       icon: FileText,
       isActive: false,
     },
     {
       title: "데이터베이스 관리",
-      url: "#",
+      url: "/",
       icon: Database,
       isActive: false,
       items: [
@@ -111,7 +111,7 @@ const data = {
         },
         {
           title: "시험지",
-          url: "/templates/test-papers",
+          url: "/templates/exam",
         },
       ],
     },
@@ -122,15 +122,15 @@ const data = {
       items: [
         {
           title: "변환통계",
-          url: "/statistics/conversion-stats"
+          url: "/analytic/conversion"
         },
         {
           title: "보유통계",
-          url: "/statistics/possession-stats",
+          url: "/analytic/possession",
         },
         {
           title: "사용통계",
-          url: "/statistics/usage-stats",
+          url: "/analytic/usage",
         },
       ],
     },
@@ -138,8 +138,6 @@ const data = {
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  
-
   return (
     <Sidebar collapsible="icon" {...props} className="border-none">
       <SidebarHeader>

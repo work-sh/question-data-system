@@ -9,7 +9,7 @@ import { PageContainer } from "@/components/PageContainer"
 import { SearchFilter } from "@/components/SearchFilter"
 import { DataTable, SortableHeader, ActionsDropdown } from "@/components/DataTable"
 
-export const Route = createFileRoute('/assessment-sets/')({
+export const Route = createFileRoute('/assessments/')({
   component: AssessmentSetsPage,
 })
 

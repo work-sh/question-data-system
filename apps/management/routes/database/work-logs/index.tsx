@@ -18,7 +18,7 @@ import {
 import { PageHeader } from '@/components/PageHeader'
 import { PageContainer } from '@/components/PageContainer'
 
-export const Route = createFileRoute('/database/work-logs')({
+export const Route = createFileRoute('/database/work-logs/')({
   component: WorkLogsPage,
 })
 

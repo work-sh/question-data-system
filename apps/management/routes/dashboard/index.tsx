@@ -4,7 +4,7 @@ import { useQuestions } from "@/hooks"
 import { PageHeader } from "@/components/PageHeader"
 import { PageContainer } from '@/components/PageContainer'
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/dashboard/')({
   component: Index,
 })
 

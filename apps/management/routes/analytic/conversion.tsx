@@ -16,7 +16,7 @@ import { PageHeader } from '@/components/PageHeader'
 import { SearchFilter } from '@/components/SearchFilter'
 import { PageContainer } from '@/components/PageContainer'
 
-export const Route = createFileRoute('/statistics/conversion-stats')({
+export const Route = createFileRoute('/analytic/conversion')({
   component: ConversionStatsPage,
 })
 

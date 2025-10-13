@@ -80,13 +80,13 @@ export function NavUser({
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem asChild>
-                <Link to="/my-page/profile">
+                <Link to="/my-account/profile">
                   <CreditCard />
                   마이페이지
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/my-page/scrap">
+                <Link to="/my-account/scrap">
                   <BadgeCheck />
                   문항 스크랩
                 </Link>

@@ -1,26 +1,26 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
 import { Button } from "@workspace/ui/components/button"
-import { AlertTriangle, Search, Filter, Download, Calendar, RefreshCw } from "lucide-react"
+import { History, Search, Filter, Download, Calendar } from "lucide-react"
 import { PageHeader } from "@/components/PageHeader"
 import { PageContainer } from "@/components/PageContainer"
 import { SearchFilter } from "@/components/SearchFilter"
 
-export const Route = createFileRoute('/database/error-logs')({
-  component: ErrorLogsPage,
+export const Route = createFileRoute('/database/user-activity/')({
+  component: UserActivityPage,
 })
 
-function ErrorLogsPage() {
+function UserActivityPage() {
   const filterFields = [
     {
       type: 'select' as const,
-      label: '오류 레벨',
-      placeholder: '오류 레벨 선택',
+      label: '작업 유형',
+      placeholder: '작업 유형 선택',
       options: [
         { value: 'all', label: '전체' },
-        { value: 'error', label: 'ERROR' },
-        { value: 'warning', label: 'WARNING' },
-        { value: 'info', label: 'INFO' }
+        { value: 'create', label: '생성' },
+        { value: 'update', label: '수정' },
+        { value: 'delete', label: '삭제' }
       ]
     },
     {
@@ -39,8 +39,8 @@ function ErrorLogsPage() {
   return (
     <PageContainer>
       <PageHeader
-        title="오류 로그 조회"
-        description="시스템 오류 로그를 조회합니다"
+        title="사용자 작업 내역"
+        description="사용자의 작업 내역을 조회합니다"
         actions={[
           {
             label: "기간 설정",
@@ -48,27 +48,22 @@ function ErrorLogsPage() {
             variant: "outline"
           },
           {
-            label: "새로고침",
-            icon: RefreshCw,
-            variant: "outline"
-          },
-          {
-            label: "로그 다운로드",
+            label: "내역 다운로드",
             icon: Download
           }
         ]}
       />
 
       <SearchFilter
-        searchPlaceholder="오류 검색..."
+        searchPlaceholder="사용자 검색..."
         filterFields={filterFields}
       />
 
       <Card>
         <CardHeader>
-          <CardTitle>오류 로그</CardTitle>
+          <CardTitle>작업 내역</CardTitle>
           <CardDescription>
-            시스템에서 발생한 오류 로그 목록입니다
+            사용자별 작업 내역 목록입니다
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -76,17 +71,17 @@ function ErrorLogsPage() {
             <div className="border rounded-lg p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="flex aspect-square size-10 items-center justify-center rounded-lg bg-red-100 text-red-800">
-                    <AlertTriangle className="size-5" />
+                  <div className="flex aspect-square size-10 items-center justify-center rounded-lg bg-gray-100 text-gray-800">
+                    <History className="size-5" />
                   </div>
                   <div>
-                    <h3 className="font-medium">Database Connection Error</h3>
-                    <p className="text-sm text-muted-foreground">2024-01-15 14:30:25 - 데이터베이스 연결 실패</p>
+                    <h3 className="font-medium">관리자</h3>
+                    <p className="text-sm text-muted-foreground">문항 생성 - 2024-01-15 14:30</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">
-                    ERROR
+                  <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
+                    생성
                   </span>
                 </div>
               </div>

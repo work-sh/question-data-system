@@ -5,7 +5,7 @@ import { PageContainer } from '@/components/PageContainer'
 import { PageHeader } from '@/components/PageHeader'
 import { Contact, SquareAsterisk } from 'lucide-react'
 
-export const Route = createFileRoute('/my-page/profile')({
+export const Route = createFileRoute('/my-account/profile')({
   component: Profile,
 })
 
