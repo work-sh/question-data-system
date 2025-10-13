@@ -45,6 +45,8 @@ export function AppLayout({ children }: AppLayoutProps) {
             {children}
           </div>
       </SidebarInset>
+      {/* 우측 문항 편집 사이드바 */}
+      {/* <QuestionEditSidebar /> */}
     </SidebarProvider>
   )
 }
