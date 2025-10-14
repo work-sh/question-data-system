@@ -8,471 +8,471 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from "./__root";
-import { Route as AnalyticConversionRouteImport } from "./analytic/conversion";
-import { Route as AnalyticPossessionRouteImport } from "./analytic/possession";
-import { Route as AnalyticUsageRouteImport } from "./analytic/usage";
-import { Route as AssessmentsIndexRouteImport } from "./assessments/index";
-import { Route as DashboardIndexRouteImport } from "./dashboard/index";
-import { Route as DatabaseChaptersIndexRouteImport } from "./database/chapters/index";
-import { Route as DatabaseCodesIndexRouteImport } from "./database/codes/index";
-import { Route as DatabaseDomainsIndexRouteImport } from "./database/domains/index";
-import { Route as DatabaseErrorLogsIndexRouteImport } from "./database/error-logs/index";
-import { Route as DatabaseSourcesIndexRouteImport } from "./database/sources/index";
-import { Route as DatabaseTextbooksIndexRouteImport } from "./database/textbooks/index";
-import { Route as DatabaseUserActivityIndexRouteImport } from "./database/user-activity/index";
-import { Route as DatabaseWorkLogsIndexRouteImport } from "./database/work-logs/index";
-import { Route as ItemsCreateRouteImport } from "./items/create";
-import { Route as ItemsIndexRouteImport } from "./items/index";
-import { Route as LoginIndexRouteImport } from "./login/index";
-import { Route as MyAccountProfileRouteImport } from "./my-account/profile";
-import { Route as MyAccountScrapRouteImport } from "./my-account/scrap";
-import { Route as ResourcesIndexRouteImport } from "./resources/index";
-import { Route as TemplatesExamRouteImport } from "./templates/exam";
-import { Route as TemplatesQuestionTypesRouteImport } from "./templates/question-types";
-import { Route as UserManagementIndexRouteImport } from "./user-management/index";
+import { Route as rootRouteImport } from './__root'
+import { Route as UserManagementIndexRouteImport } from './user-management/index'
+import { Route as ResourcesIndexRouteImport } from './resources/index'
+import { Route as LoginIndexRouteImport } from './login/index'
+import { Route as ItemsIndexRouteImport } from './items/index'
+import { Route as DashboardIndexRouteImport } from './dashboard/index'
+import { Route as AssessmentsIndexRouteImport } from './assessments/index'
+import { Route as TemplatesQuestionTypesRouteImport } from './templates/question-types'
+import { Route as TemplatesExamRouteImport } from './templates/exam'
+import { Route as MyAccountScrapRouteImport } from './my-account/scrap'
+import { Route as MyAccountProfileRouteImport } from './my-account/profile'
+import { Route as ItemsCreateRouteImport } from './items/create'
+import { Route as AnalyticUsageRouteImport } from './analytic/usage'
+import { Route as AnalyticPossessionRouteImport } from './analytic/possession'
+import { Route as AnalyticConversionRouteImport } from './analytic/conversion'
+import { Route as DatabaseWorkLogsIndexRouteImport } from './database/work-logs/index'
+import { Route as DatabaseUserActivityIndexRouteImport } from './database/user-activity/index'
+import { Route as DatabaseTextbooksIndexRouteImport } from './database/textbooks/index'
+import { Route as DatabaseSourcesIndexRouteImport } from './database/sources/index'
+import { Route as DatabaseErrorLogsIndexRouteImport } from './database/error-logs/index'
+import { Route as DatabaseDomainsIndexRouteImport } from './database/domains/index'
+import { Route as DatabaseCodesIndexRouteImport } from './database/codes/index'
+import { Route as DatabaseChaptersIndexRouteImport } from './database/chapters/index'
 
 const UserManagementIndexRoute = UserManagementIndexRouteImport.update({
-  id: "/user-management/",
-  path: "/user-management/",
+  id: '/user-management/',
+  path: '/user-management/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
-  id: "/resources/",
-  path: "/resources/",
+  id: '/resources/',
+  path: '/resources/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const LoginIndexRoute = LoginIndexRouteImport.update({
-  id: "/login/",
-  path: "/login/",
+  id: '/login/',
+  path: '/login/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const ItemsIndexRoute = ItemsIndexRouteImport.update({
-  id: "/items/",
-  path: "/items/",
+  id: '/items/',
+  path: '/items/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
-  id: "/dashboard/",
-  path: "/dashboard/",
+  id: '/dashboard/',
+  path: '/dashboard/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const AssessmentsIndexRoute = AssessmentsIndexRouteImport.update({
-  id: "/assessments/",
-  path: "/assessments/",
+  id: '/assessments/',
+  path: '/assessments/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const TemplatesQuestionTypesRoute = TemplatesQuestionTypesRouteImport.update({
-  id: "/templates/question-types",
-  path: "/templates/question-types",
+  id: '/templates/question-types',
+  path: '/templates/question-types',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const TemplatesExamRoute = TemplatesExamRouteImport.update({
-  id: "/templates/exam",
-  path: "/templates/exam",
+  id: '/templates/exam',
+  path: '/templates/exam',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const MyAccountScrapRoute = MyAccountScrapRouteImport.update({
-  id: "/my-account/scrap",
-  path: "/my-account/scrap",
+  id: '/my-account/scrap',
+  path: '/my-account/scrap',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const MyAccountProfileRoute = MyAccountProfileRouteImport.update({
-  id: "/my-account/profile",
-  path: "/my-account/profile",
+  id: '/my-account/profile',
+  path: '/my-account/profile',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const ItemsCreateRoute = ItemsCreateRouteImport.update({
-  id: "/items/create",
-  path: "/items/create",
+  id: '/items/create',
+  path: '/items/create',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const AnalyticUsageRoute = AnalyticUsageRouteImport.update({
-  id: "/analytic/usage",
-  path: "/analytic/usage",
+  id: '/analytic/usage',
+  path: '/analytic/usage',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const AnalyticPossessionRoute = AnalyticPossessionRouteImport.update({
-  id: "/analytic/possession",
-  path: "/analytic/possession",
+  id: '/analytic/possession',
+  path: '/analytic/possession',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const AnalyticConversionRoute = AnalyticConversionRouteImport.update({
-  id: "/analytic/conversion",
-  path: "/analytic/conversion",
+  id: '/analytic/conversion',
+  path: '/analytic/conversion',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const DatabaseWorkLogsIndexRoute = DatabaseWorkLogsIndexRouteImport.update({
-  id: "/database/work-logs/",
-  path: "/database/work-logs/",
+  id: '/database/work-logs/',
+  path: '/database/work-logs/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const DatabaseUserActivityIndexRoute =
   DatabaseUserActivityIndexRouteImport.update({
-    id: "/database/user-activity/",
-    path: "/database/user-activity/",
+    id: '/database/user-activity/',
+    path: '/database/user-activity/',
     getParentRoute: () => rootRouteImport,
-  } as any);
+  } as any)
 const DatabaseTextbooksIndexRoute = DatabaseTextbooksIndexRouteImport.update({
-  id: "/database/textbooks/",
-  path: "/database/textbooks/",
+  id: '/database/textbooks/',
+  path: '/database/textbooks/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const DatabaseSourcesIndexRoute = DatabaseSourcesIndexRouteImport.update({
-  id: "/database/sources/",
-  path: "/database/sources/",
+  id: '/database/sources/',
+  path: '/database/sources/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const DatabaseErrorLogsIndexRoute = DatabaseErrorLogsIndexRouteImport.update({
-  id: "/database/error-logs/",
-  path: "/database/error-logs/",
+  id: '/database/error-logs/',
+  path: '/database/error-logs/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const DatabaseDomainsIndexRoute = DatabaseDomainsIndexRouteImport.update({
-  id: "/database/domains/",
-  path: "/database/domains/",
+  id: '/database/domains/',
+  path: '/database/domains/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const DatabaseCodesIndexRoute = DatabaseCodesIndexRouteImport.update({
-  id: "/database/codes/",
-  path: "/database/codes/",
+  id: '/database/codes/',
+  path: '/database/codes/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const DatabaseChaptersIndexRoute = DatabaseChaptersIndexRouteImport.update({
-  id: "/database/chapters/",
-  path: "/database/chapters/",
+  id: '/database/chapters/',
+  path: '/database/chapters/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 
 export interface FileRoutesByFullPath {
-  "/analytic/conversion": typeof AnalyticConversionRoute;
-  "/analytic/possession": typeof AnalyticPossessionRoute;
-  "/analytic/usage": typeof AnalyticUsageRoute;
-  "/items/create": typeof ItemsCreateRoute;
-  "/my-account/profile": typeof MyAccountProfileRoute;
-  "/my-account/scrap": typeof MyAccountScrapRoute;
-  "/templates/exam": typeof TemplatesExamRoute;
-  "/templates/question-types": typeof TemplatesQuestionTypesRoute;
-  "/assessments": typeof AssessmentsIndexRoute;
-  "/dashboard": typeof DashboardIndexRoute;
-  "/items": typeof ItemsIndexRoute;
-  "/login": typeof LoginIndexRoute;
-  "/resources": typeof ResourcesIndexRoute;
-  "/user-management": typeof UserManagementIndexRoute;
-  "/database/chapters": typeof DatabaseChaptersIndexRoute;
-  "/database/codes": typeof DatabaseCodesIndexRoute;
-  "/database/domains": typeof DatabaseDomainsIndexRoute;
-  "/database/error-logs": typeof DatabaseErrorLogsIndexRoute;
-  "/database/sources": typeof DatabaseSourcesIndexRoute;
-  "/database/textbooks": typeof DatabaseTextbooksIndexRoute;
-  "/database/user-activity": typeof DatabaseUserActivityIndexRoute;
-  "/database/work-logs": typeof DatabaseWorkLogsIndexRoute;
+  '/analytic/conversion': typeof AnalyticConversionRoute
+  '/analytic/possession': typeof AnalyticPossessionRoute
+  '/analytic/usage': typeof AnalyticUsageRoute
+  '/items/create': typeof ItemsCreateRoute
+  '/my-account/profile': typeof MyAccountProfileRoute
+  '/my-account/scrap': typeof MyAccountScrapRoute
+  '/templates/exam': typeof TemplatesExamRoute
+  '/templates/question-types': typeof TemplatesQuestionTypesRoute
+  '/assessments': typeof AssessmentsIndexRoute
+  '/dashboard': typeof DashboardIndexRoute
+  '/items': typeof ItemsIndexRoute
+  '/login': typeof LoginIndexRoute
+  '/resources': typeof ResourcesIndexRoute
+  '/user-management': typeof UserManagementIndexRoute
+  '/database/chapters': typeof DatabaseChaptersIndexRoute
+  '/database/codes': typeof DatabaseCodesIndexRoute
+  '/database/domains': typeof DatabaseDomainsIndexRoute
+  '/database/error-logs': typeof DatabaseErrorLogsIndexRoute
+  '/database/sources': typeof DatabaseSourcesIndexRoute
+  '/database/textbooks': typeof DatabaseTextbooksIndexRoute
+  '/database/user-activity': typeof DatabaseUserActivityIndexRoute
+  '/database/work-logs': typeof DatabaseWorkLogsIndexRoute
 }
 export interface FileRoutesByTo {
-  "/analytic/conversion": typeof AnalyticConversionRoute;
-  "/analytic/possession": typeof AnalyticPossessionRoute;
-  "/analytic/usage": typeof AnalyticUsageRoute;
-  "/items/create": typeof ItemsCreateRoute;
-  "/my-account/profile": typeof MyAccountProfileRoute;
-  "/my-account/scrap": typeof MyAccountScrapRoute;
-  "/templates/exam": typeof TemplatesExamRoute;
-  "/templates/question-types": typeof TemplatesQuestionTypesRoute;
-  "/assessments": typeof AssessmentsIndexRoute;
-  "/dashboard": typeof DashboardIndexRoute;
-  "/items": typeof ItemsIndexRoute;
-  "/login": typeof LoginIndexRoute;
-  "/resources": typeof ResourcesIndexRoute;
-  "/user-management": typeof UserManagementIndexRoute;
-  "/database/chapters": typeof DatabaseChaptersIndexRoute;
-  "/database/codes": typeof DatabaseCodesIndexRoute;
-  "/database/domains": typeof DatabaseDomainsIndexRoute;
-  "/database/error-logs": typeof DatabaseErrorLogsIndexRoute;
-  "/database/sources": typeof DatabaseSourcesIndexRoute;
-  "/database/textbooks": typeof DatabaseTextbooksIndexRoute;
-  "/database/user-activity": typeof DatabaseUserActivityIndexRoute;
-  "/database/work-logs": typeof DatabaseWorkLogsIndexRoute;
+  '/analytic/conversion': typeof AnalyticConversionRoute
+  '/analytic/possession': typeof AnalyticPossessionRoute
+  '/analytic/usage': typeof AnalyticUsageRoute
+  '/items/create': typeof ItemsCreateRoute
+  '/my-account/profile': typeof MyAccountProfileRoute
+  '/my-account/scrap': typeof MyAccountScrapRoute
+  '/templates/exam': typeof TemplatesExamRoute
+  '/templates/question-types': typeof TemplatesQuestionTypesRoute
+  '/assessments': typeof AssessmentsIndexRoute
+  '/dashboard': typeof DashboardIndexRoute
+  '/items': typeof ItemsIndexRoute
+  '/login': typeof LoginIndexRoute
+  '/resources': typeof ResourcesIndexRoute
+  '/user-management': typeof UserManagementIndexRoute
+  '/database/chapters': typeof DatabaseChaptersIndexRoute
+  '/database/codes': typeof DatabaseCodesIndexRoute
+  '/database/domains': typeof DatabaseDomainsIndexRoute
+  '/database/error-logs': typeof DatabaseErrorLogsIndexRoute
+  '/database/sources': typeof DatabaseSourcesIndexRoute
+  '/database/textbooks': typeof DatabaseTextbooksIndexRoute
+  '/database/user-activity': typeof DatabaseUserActivityIndexRoute
+  '/database/work-logs': typeof DatabaseWorkLogsIndexRoute
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport;
-  "/analytic/conversion": typeof AnalyticConversionRoute;
-  "/analytic/possession": typeof AnalyticPossessionRoute;
-  "/analytic/usage": typeof AnalyticUsageRoute;
-  "/items/create": typeof ItemsCreateRoute;
-  "/my-account/profile": typeof MyAccountProfileRoute;
-  "/my-account/scrap": typeof MyAccountScrapRoute;
-  "/templates/exam": typeof TemplatesExamRoute;
-  "/templates/question-types": typeof TemplatesQuestionTypesRoute;
-  "/assessments/": typeof AssessmentsIndexRoute;
-  "/dashboard/": typeof DashboardIndexRoute;
-  "/items/": typeof ItemsIndexRoute;
-  "/login/": typeof LoginIndexRoute;
-  "/resources/": typeof ResourcesIndexRoute;
-  "/user-management/": typeof UserManagementIndexRoute;
-  "/database/chapters/": typeof DatabaseChaptersIndexRoute;
-  "/database/codes/": typeof DatabaseCodesIndexRoute;
-  "/database/domains/": typeof DatabaseDomainsIndexRoute;
-  "/database/error-logs/": typeof DatabaseErrorLogsIndexRoute;
-  "/database/sources/": typeof DatabaseSourcesIndexRoute;
-  "/database/textbooks/": typeof DatabaseTextbooksIndexRoute;
-  "/database/user-activity/": typeof DatabaseUserActivityIndexRoute;
-  "/database/work-logs/": typeof DatabaseWorkLogsIndexRoute;
+  __root__: typeof rootRouteImport
+  '/analytic/conversion': typeof AnalyticConversionRoute
+  '/analytic/possession': typeof AnalyticPossessionRoute
+  '/analytic/usage': typeof AnalyticUsageRoute
+  '/items/create': typeof ItemsCreateRoute
+  '/my-account/profile': typeof MyAccountProfileRoute
+  '/my-account/scrap': typeof MyAccountScrapRoute
+  '/templates/exam': typeof TemplatesExamRoute
+  '/templates/question-types': typeof TemplatesQuestionTypesRoute
+  '/assessments/': typeof AssessmentsIndexRoute
+  '/dashboard/': typeof DashboardIndexRoute
+  '/items/': typeof ItemsIndexRoute
+  '/login/': typeof LoginIndexRoute
+  '/resources/': typeof ResourcesIndexRoute
+  '/user-management/': typeof UserManagementIndexRoute
+  '/database/chapters/': typeof DatabaseChaptersIndexRoute
+  '/database/codes/': typeof DatabaseCodesIndexRoute
+  '/database/domains/': typeof DatabaseDomainsIndexRoute
+  '/database/error-logs/': typeof DatabaseErrorLogsIndexRoute
+  '/database/sources/': typeof DatabaseSourcesIndexRoute
+  '/database/textbooks/': typeof DatabaseTextbooksIndexRoute
+  '/database/user-activity/': typeof DatabaseUserActivityIndexRoute
+  '/database/work-logs/': typeof DatabaseWorkLogsIndexRoute
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
+  fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | "/analytic/conversion"
-    | "/analytic/possession"
-    | "/analytic/usage"
-    | "/items/create"
-    | "/my-account/profile"
-    | "/my-account/scrap"
-    | "/templates/exam"
-    | "/templates/question-types"
-    | "/assessments"
-    | "/dashboard"
-    | "/items"
-    | "/login"
-    | "/resources"
-    | "/user-management"
-    | "/database/chapters"
-    | "/database/codes"
-    | "/database/domains"
-    | "/database/error-logs"
-    | "/database/sources"
-    | "/database/textbooks"
-    | "/database/user-activity"
-    | "/database/work-logs";
-  fileRoutesByTo: FileRoutesByTo;
+    | '/analytic/conversion'
+    | '/analytic/possession'
+    | '/analytic/usage'
+    | '/items/create'
+    | '/my-account/profile'
+    | '/my-account/scrap'
+    | '/templates/exam'
+    | '/templates/question-types'
+    | '/assessments'
+    | '/dashboard'
+    | '/items'
+    | '/login'
+    | '/resources'
+    | '/user-management'
+    | '/database/chapters'
+    | '/database/codes'
+    | '/database/domains'
+    | '/database/error-logs'
+    | '/database/sources'
+    | '/database/textbooks'
+    | '/database/user-activity'
+    | '/database/work-logs'
+  fileRoutesByTo: FileRoutesByTo
   to:
-    | "/analytic/conversion"
-    | "/analytic/possession"
-    | "/analytic/usage"
-    | "/items/create"
-    | "/my-account/profile"
-    | "/my-account/scrap"
-    | "/templates/exam"
-    | "/templates/question-types"
-    | "/assessments"
-    | "/dashboard"
-    | "/items"
-    | "/login"
-    | "/resources"
-    | "/user-management"
-    | "/database/chapters"
-    | "/database/codes"
-    | "/database/domains"
-    | "/database/error-logs"
-    | "/database/sources"
-    | "/database/textbooks"
-    | "/database/user-activity"
-    | "/database/work-logs";
+    | '/analytic/conversion'
+    | '/analytic/possession'
+    | '/analytic/usage'
+    | '/items/create'
+    | '/my-account/profile'
+    | '/my-account/scrap'
+    | '/templates/exam'
+    | '/templates/question-types'
+    | '/assessments'
+    | '/dashboard'
+    | '/items'
+    | '/login'
+    | '/resources'
+    | '/user-management'
+    | '/database/chapters'
+    | '/database/codes'
+    | '/database/domains'
+    | '/database/error-logs'
+    | '/database/sources'
+    | '/database/textbooks'
+    | '/database/user-activity'
+    | '/database/work-logs'
   id:
-    | "__root__"
-    | "/analytic/conversion"
-    | "/analytic/possession"
-    | "/analytic/usage"
-    | "/items/create"
-    | "/my-account/profile"
-    | "/my-account/scrap"
-    | "/templates/exam"
-    | "/templates/question-types"
-    | "/assessments/"
-    | "/dashboard/"
-    | "/items/"
-    | "/login/"
-    | "/resources/"
-    | "/user-management/"
-    | "/database/chapters/"
-    | "/database/codes/"
-    | "/database/domains/"
-    | "/database/error-logs/"
-    | "/database/sources/"
-    | "/database/textbooks/"
-    | "/database/user-activity/"
-    | "/database/work-logs/";
-  fileRoutesById: FileRoutesById;
+    | '__root__'
+    | '/analytic/conversion'
+    | '/analytic/possession'
+    | '/analytic/usage'
+    | '/items/create'
+    | '/my-account/profile'
+    | '/my-account/scrap'
+    | '/templates/exam'
+    | '/templates/question-types'
+    | '/assessments/'
+    | '/dashboard/'
+    | '/items/'
+    | '/login/'
+    | '/resources/'
+    | '/user-management/'
+    | '/database/chapters/'
+    | '/database/codes/'
+    | '/database/domains/'
+    | '/database/error-logs/'
+    | '/database/sources/'
+    | '/database/textbooks/'
+    | '/database/user-activity/'
+    | '/database/work-logs/'
+  fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  AnalyticConversionRoute: typeof AnalyticConversionRoute;
-  AnalyticPossessionRoute: typeof AnalyticPossessionRoute;
-  AnalyticUsageRoute: typeof AnalyticUsageRoute;
-  ItemsCreateRoute: typeof ItemsCreateRoute;
-  MyAccountProfileRoute: typeof MyAccountProfileRoute;
-  MyAccountScrapRoute: typeof MyAccountScrapRoute;
-  TemplatesExamRoute: typeof TemplatesExamRoute;
-  TemplatesQuestionTypesRoute: typeof TemplatesQuestionTypesRoute;
-  AssessmentsIndexRoute: typeof AssessmentsIndexRoute;
-  DashboardIndexRoute: typeof DashboardIndexRoute;
-  ItemsIndexRoute: typeof ItemsIndexRoute;
-  LoginIndexRoute: typeof LoginIndexRoute;
-  ResourcesIndexRoute: typeof ResourcesIndexRoute;
-  UserManagementIndexRoute: typeof UserManagementIndexRoute;
-  DatabaseChaptersIndexRoute: typeof DatabaseChaptersIndexRoute;
-  DatabaseCodesIndexRoute: typeof DatabaseCodesIndexRoute;
-  DatabaseDomainsIndexRoute: typeof DatabaseDomainsIndexRoute;
-  DatabaseErrorLogsIndexRoute: typeof DatabaseErrorLogsIndexRoute;
-  DatabaseSourcesIndexRoute: typeof DatabaseSourcesIndexRoute;
-  DatabaseTextbooksIndexRoute: typeof DatabaseTextbooksIndexRoute;
-  DatabaseUserActivityIndexRoute: typeof DatabaseUserActivityIndexRoute;
-  DatabaseWorkLogsIndexRoute: typeof DatabaseWorkLogsIndexRoute;
+  AnalyticConversionRoute: typeof AnalyticConversionRoute
+  AnalyticPossessionRoute: typeof AnalyticPossessionRoute
+  AnalyticUsageRoute: typeof AnalyticUsageRoute
+  ItemsCreateRoute: typeof ItemsCreateRoute
+  MyAccountProfileRoute: typeof MyAccountProfileRoute
+  MyAccountScrapRoute: typeof MyAccountScrapRoute
+  TemplatesExamRoute: typeof TemplatesExamRoute
+  TemplatesQuestionTypesRoute: typeof TemplatesQuestionTypesRoute
+  AssessmentsIndexRoute: typeof AssessmentsIndexRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
+  ItemsIndexRoute: typeof ItemsIndexRoute
+  LoginIndexRoute: typeof LoginIndexRoute
+  ResourcesIndexRoute: typeof ResourcesIndexRoute
+  UserManagementIndexRoute: typeof UserManagementIndexRoute
+  DatabaseChaptersIndexRoute: typeof DatabaseChaptersIndexRoute
+  DatabaseCodesIndexRoute: typeof DatabaseCodesIndexRoute
+  DatabaseDomainsIndexRoute: typeof DatabaseDomainsIndexRoute
+  DatabaseErrorLogsIndexRoute: typeof DatabaseErrorLogsIndexRoute
+  DatabaseSourcesIndexRoute: typeof DatabaseSourcesIndexRoute
+  DatabaseTextbooksIndexRoute: typeof DatabaseTextbooksIndexRoute
+  DatabaseUserActivityIndexRoute: typeof DatabaseUserActivityIndexRoute
+  DatabaseWorkLogsIndexRoute: typeof DatabaseWorkLogsIndexRoute
 }
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/user-management/": {
-      id: "/user-management/";
-      path: "/user-management";
-      fullPath: "/user-management";
-      preLoaderRoute: typeof UserManagementIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/resources/": {
-      id: "/resources/";
-      path: "/resources";
-      fullPath: "/resources";
-      preLoaderRoute: typeof ResourcesIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/login/": {
-      id: "/login/";
-      path: "/login";
-      fullPath: "/login";
-      preLoaderRoute: typeof LoginIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/items/": {
-      id: "/items/";
-      path: "/items";
-      fullPath: "/items";
-      preLoaderRoute: typeof ItemsIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/dashboard/": {
-      id: "/dashboard/";
-      path: "/dashboard";
-      fullPath: "/dashboard";
-      preLoaderRoute: typeof DashboardIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/assessments/": {
-      id: "/assessments/";
-      path: "/assessments";
-      fullPath: "/assessments";
-      preLoaderRoute: typeof AssessmentsIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/templates/question-types": {
-      id: "/templates/question-types";
-      path: "/templates/question-types";
-      fullPath: "/templates/question-types";
-      preLoaderRoute: typeof TemplatesQuestionTypesRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/templates/exam": {
-      id: "/templates/exam";
-      path: "/templates/exam";
-      fullPath: "/templates/exam";
-      preLoaderRoute: typeof TemplatesExamRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/my-account/scrap": {
-      id: "/my-account/scrap";
-      path: "/my-account/scrap";
-      fullPath: "/my-account/scrap";
-      preLoaderRoute: typeof MyAccountScrapRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/my-account/profile": {
-      id: "/my-account/profile";
-      path: "/my-account/profile";
-      fullPath: "/my-account/profile";
-      preLoaderRoute: typeof MyAccountProfileRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/items/create": {
-      id: "/items/create";
-      path: "/items/create";
-      fullPath: "/items/create";
-      preLoaderRoute: typeof ItemsCreateRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/analytic/usage": {
-      id: "/analytic/usage";
-      path: "/analytic/usage";
-      fullPath: "/analytic/usage";
-      preLoaderRoute: typeof AnalyticUsageRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/analytic/possession": {
-      id: "/analytic/possession";
-      path: "/analytic/possession";
-      fullPath: "/analytic/possession";
-      preLoaderRoute: typeof AnalyticPossessionRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/analytic/conversion": {
-      id: "/analytic/conversion";
-      path: "/analytic/conversion";
-      fullPath: "/analytic/conversion";
-      preLoaderRoute: typeof AnalyticConversionRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/database/work-logs/": {
-      id: "/database/work-logs/";
-      path: "/database/work-logs";
-      fullPath: "/database/work-logs";
-      preLoaderRoute: typeof DatabaseWorkLogsIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/database/user-activity/": {
-      id: "/database/user-activity/";
-      path: "/database/user-activity";
-      fullPath: "/database/user-activity";
-      preLoaderRoute: typeof DatabaseUserActivityIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/database/textbooks/": {
-      id: "/database/textbooks/";
-      path: "/database/textbooks";
-      fullPath: "/database/textbooks";
-      preLoaderRoute: typeof DatabaseTextbooksIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/database/sources/": {
-      id: "/database/sources/";
-      path: "/database/sources";
-      fullPath: "/database/sources";
-      preLoaderRoute: typeof DatabaseSourcesIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/database/error-logs/": {
-      id: "/database/error-logs/";
-      path: "/database/error-logs";
-      fullPath: "/database/error-logs";
-      preLoaderRoute: typeof DatabaseErrorLogsIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/database/domains/": {
-      id: "/database/domains/";
-      path: "/database/domains";
-      fullPath: "/database/domains";
-      preLoaderRoute: typeof DatabaseDomainsIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/database/codes/": {
-      id: "/database/codes/";
-      path: "/database/codes";
-      fullPath: "/database/codes";
-      preLoaderRoute: typeof DatabaseCodesIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/database/chapters/": {
-      id: "/database/chapters/";
-      path: "/database/chapters";
-      fullPath: "/database/chapters";
-      preLoaderRoute: typeof DatabaseChaptersIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
+    '/user-management/': {
+      id: '/user-management/'
+      path: '/user-management'
+      fullPath: '/user-management'
+      preLoaderRoute: typeof UserManagementIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources/': {
+      id: '/resources/'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login/': {
+      id: '/login/'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/items/': {
+      id: '/items/'
+      path: '/items'
+      fullPath: '/items'
+      preLoaderRoute: typeof ItemsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assessments/': {
+      id: '/assessments/'
+      path: '/assessments'
+      fullPath: '/assessments'
+      preLoaderRoute: typeof AssessmentsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/templates/question-types': {
+      id: '/templates/question-types'
+      path: '/templates/question-types'
+      fullPath: '/templates/question-types'
+      preLoaderRoute: typeof TemplatesQuestionTypesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/templates/exam': {
+      id: '/templates/exam'
+      path: '/templates/exam'
+      fullPath: '/templates/exam'
+      preLoaderRoute: typeof TemplatesExamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-account/scrap': {
+      id: '/my-account/scrap'
+      path: '/my-account/scrap'
+      fullPath: '/my-account/scrap'
+      preLoaderRoute: typeof MyAccountScrapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-account/profile': {
+      id: '/my-account/profile'
+      path: '/my-account/profile'
+      fullPath: '/my-account/profile'
+      preLoaderRoute: typeof MyAccountProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/items/create': {
+      id: '/items/create'
+      path: '/items/create'
+      fullPath: '/items/create'
+      preLoaderRoute: typeof ItemsCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytic/usage': {
+      id: '/analytic/usage'
+      path: '/analytic/usage'
+      fullPath: '/analytic/usage'
+      preLoaderRoute: typeof AnalyticUsageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytic/possession': {
+      id: '/analytic/possession'
+      path: '/analytic/possession'
+      fullPath: '/analytic/possession'
+      preLoaderRoute: typeof AnalyticPossessionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytic/conversion': {
+      id: '/analytic/conversion'
+      path: '/analytic/conversion'
+      fullPath: '/analytic/conversion'
+      preLoaderRoute: typeof AnalyticConversionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/work-logs/': {
+      id: '/database/work-logs/'
+      path: '/database/work-logs'
+      fullPath: '/database/work-logs'
+      preLoaderRoute: typeof DatabaseWorkLogsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/user-activity/': {
+      id: '/database/user-activity/'
+      path: '/database/user-activity'
+      fullPath: '/database/user-activity'
+      preLoaderRoute: typeof DatabaseUserActivityIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/textbooks/': {
+      id: '/database/textbooks/'
+      path: '/database/textbooks'
+      fullPath: '/database/textbooks'
+      preLoaderRoute: typeof DatabaseTextbooksIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/sources/': {
+      id: '/database/sources/'
+      path: '/database/sources'
+      fullPath: '/database/sources'
+      preLoaderRoute: typeof DatabaseSourcesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/error-logs/': {
+      id: '/database/error-logs/'
+      path: '/database/error-logs'
+      fullPath: '/database/error-logs'
+      preLoaderRoute: typeof DatabaseErrorLogsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/domains/': {
+      id: '/database/domains/'
+      path: '/database/domains'
+      fullPath: '/database/domains'
+      preLoaderRoute: typeof DatabaseDomainsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/codes/': {
+      id: '/database/codes/'
+      path: '/database/codes'
+      fullPath: '/database/codes'
+      preLoaderRoute: typeof DatabaseCodesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/chapters/': {
+      id: '/database/chapters/'
+      path: '/database/chapters'
+      fullPath: '/database/chapters'
+      preLoaderRoute: typeof DatabaseChaptersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -499,7 +499,7 @@ const rootRouteChildren: RootRouteChildren = {
   DatabaseTextbooksIndexRoute: DatabaseTextbooksIndexRoute,
   DatabaseUserActivityIndexRoute: DatabaseUserActivityIndexRoute,
   DatabaseWorkLogsIndexRoute: DatabaseWorkLogsIndexRoute,
-};
+}
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()

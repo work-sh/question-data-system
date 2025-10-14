@@ -1,34 +1,20 @@
-import { useAuthStore } from "@/stores";
-import { Button } from "@workspace/ui/components/button";
+import { GalleryVerticalEnd } from "lucide-react"
+
+import { cn } from "@workspace/ui/lib/utils"
+import { Button } from "@workspace/ui/components/button"
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
   FieldSeparator,
-} from "@workspace/ui/components/field";
-import { Input } from "@workspace/ui/components/input";
-import { cn } from "@workspace/ui/lib/utils";
-import { GalleryVerticalEnd } from "lucide-react";
-import { useState } from "react";
+} from "@workspace/ui/components/field"
+import { Input } from "@workspace/ui/components/input"
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { login, isLoading } = useAuthStore();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      await login(email, password);
-    } catch (error) {
-      console.error("Login failed:", error);
-    }
-  };
-
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <form>
@@ -88,5 +74,5 @@ export function LoginForm({
         and <a href="#">Privacy Policy</a>.
       </FieldDescription>
     </div>
-  );
+  )
 }

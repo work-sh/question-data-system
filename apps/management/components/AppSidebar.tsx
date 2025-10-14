@@ -61,6 +61,12 @@ const data = {
       isActive: false,
     },
     {
+      title: "출제자료 관리",
+      url: "/resources",
+      icon: BookOpen,
+      isActive: false,
+    },
+    {
       title: "데이터베이스 관리",
       url: "/",
       icon: Database,

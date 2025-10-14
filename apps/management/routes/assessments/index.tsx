@@ -10,6 +10,8 @@ import {
 import { PageContainer } from "@/components/PageContainer";
 import { PageHeader } from "@/components/PageHeader";
 import { SearchFilter } from "@/components/SearchFilter";
+import { Checkbox } from "@workspace/ui/components/checkbox";
+import { useState } from "react";
 
 export const Route = createFileRoute("/assessments/")({
   component: AssessmentSetsPage,
@@ -25,67 +27,100 @@ export type AssessmentSet = {
   created: string;
 };
 
+const assessmentSets: AssessmentSet[] = [
+  {
+    id: "as001",
+    title: "중간고사 평가세트",
+    description: "2024년 1학기 중간고사",
+    status: "활성",
+    type: "정기평가",
+    subject: "수학",
+    created: "2024-01-15",
+  },
+  {
+    id: "as002",
+    title: "기말고사 평가세트",
+    description: "2024년 1학기 기말고사",
+    status: "활성",
+    type: "정기평가",
+    subject: "과학",
+    created: "2024-01-20",
+  },
+  {
+    id: "as003",
+    title: "단원평가 세트",
+    description: "1단원 평가",
+    status: "비활성",
+    type: "퀴즈",
+    subject: "국어",
+    created: "2024-01-10",
+  },
+];
+
 function AssessmentSetsPage() {
-  const assessmentSets: AssessmentSet[] = [
-    {
-      id: "as001",
-      title: "중간고사 평가세트",
-      description: "2024년 1학기 중간고사",
-      status: "활성",
-      type: "정기평가",
-      subject: "수학",
-      created: "2024-01-15",
-    },
-    {
-      id: "as002",
-      title: "기말고사 평가세트",
-      description: "2024년 1학기 기말고사",
-      status: "활성",
-      type: "정기평가",
-      subject: "과학",
-      created: "2024-01-20",
-    },
-    {
-      id: "as003",
-      title: "단원평가 세트",
-      description: "1단원 평가",
-      status: "비활성",
-      type: "퀴즈",
-      subject: "국어",
-      created: "2024-01-10",
-    },
-  ];
+  const [selectedData, setSelectedData] = useState<AssessmentSet[]>([]);
 
   const columns: ColumnDef<AssessmentSet>[] = [
     {
+      id: "select",
+      size: 50,
+      header: ({ table }) => (
+        <Checkbox
+          checked={
+            table.getIsAllPageRowsSelected() ||
+            (table.getIsSomePageRowsSelected() && "indeterminate")
+          }
+          onCheckedChange={value => table.toggleAllPageRowsSelected(!!value)}
+          aria-label="Select all"
+        />
+      ),
+      cell: ({ row }) => (
+        <Checkbox
+          checked={row.getIsSelected()}
+          onCheckedChange={value => row.toggleSelected(!!value)}
+          aria-label="Select row"
+        />
+      ),
+      meta: {
+        pinned: "left", // 컬럼 메타데이터에 고정 정보 추가
+      },
+      enableSorting: false,
+      enableHiding: false,
+    },
+    {
+      id: "title",
       accessorKey: "title",
+      size: 200,
       header: ({ column }) => (
         <SortableHeader column={column}>제목</SortableHeader>
       ),
       cell: ({ row }) => (
         <div className="font-medium">{row.getValue("title")}</div>
       ),
+      meta: {
+        pinned: "left", // 컬럼 메타데이터에 고정 정보 추가
+      },
     },
     {
+      id: "description",
       accessorKey: "description",
       header: "설명",
-      cell: ({ row }) => (
-        <div className="text-muted-foreground">
-          {row.getValue("description")}
-        </div>
-      ),
+      cell: ({ row }) => <div>{row.getValue("description")}</div>,
     },
     {
+      id: "type",
       accessorKey: "type",
       header: "유형",
       cell: ({ row }) => <div>{row.getValue("type")}</div>,
     },
     {
+      id: "subject",
       accessorKey: "subject",
       header: "과목",
       cell: ({ row }) => <div>{row.getValue("subject")}</div>,
     },
     {
+      id: "status",
       accessorKey: "status",
       header: "상태",
       cell: ({ row }) => {
@@ -104,6 +139,7 @@ function AssessmentSetsPage() {
       },
     },
     {
+      id: "created",
       accessorKey: "created",
       header: "생성일",
       cell: ({ row }) => <div>{row.getValue("created")}</div>,
@@ -133,6 +169,10 @@ function AssessmentSetsPage() {
             ]}
           />
         );
+      },
+      size: 100,
+      meta: {
+        pinned: "right",
       },
     },
   ];
@@ -196,6 +236,7 @@ function AssessmentSetsPage() {
         showColumnToggle={true}
         showPagination={true}
         pageSize={10}
+        onSelectionChange={setSelectedData}
       />
     </PageContainer>
   );

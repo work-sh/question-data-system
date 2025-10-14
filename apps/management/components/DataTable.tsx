@@ -1,17 +1,6 @@
 "use client";
 
-import {
-  ColumnDef,
-  ColumnFiltersState,
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  SortingState,
-  useReactTable,
-  VisibilityState,
-} from "@tanstack/react-table";
+import { ColumnDef, RowData } from "@tanstack/react-table";
 import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
 import * as React from "react";
 
@@ -29,10 +18,18 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableHead,
   TableHeader,
   TableRow,
 } from "@workspace/ui/components/table";
+import { useDataTable } from "../hooks";
+import { renderTableCell, renderTableHead } from "../lib";
+
+declare module "@tanstack/react-table" {
+  interface ColumnMeta<TData extends RowData, TValue> {
+    pinned?: "left" | "right" | false;
+    align?: "left" | "center" | "right";
+  }
+}
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -43,6 +40,7 @@ interface DataTableProps<TData, TValue> {
   showPagination?: boolean;
   pageSize?: number;
   className?: string;
+  onSelectionChange?: (selectedData: TData[]) => void;
 }
 
 export function DataTable<TData, TValue>({
@@ -54,51 +52,28 @@ export function DataTable<TData, TValue>({
   showPagination = true,
   pageSize = 10,
   className,
+  onSelectionChange,
 }: DataTableProps<TData, TValue>) {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  );
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = React.useState({});
-
-  const table = useReactTable({
-    data,
+  const { table, searchKey: hookSearchKey } = useDataTable({
     columns,
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    onRowSelectionChange: setRowSelection,
-    state: {
-      sorting,
-      columnFilters,
-      columnVisibility,
-      rowSelection,
-    },
-    initialState: {
-      pagination: {
-        pageSize,
-      },
-    },
+    data,
+    searchKey,
+    pageSize,
+    onSelectionChange,
   });
 
   return (
     <div className={`w-full ${className || ""}`}>
       {/* 검색 및 컬럼 토글 */}
       <div className="flex items-center py-4">
-        {searchKey && (
+        {hookSearchKey && (
           <Input
             placeholder={searchPlaceholder}
             value={
-              (table.getColumn(searchKey)?.getFilterValue() as string) ?? ""
+              (table.getColumn(hookSearchKey)?.getFilterValue() as string) ?? ""
             }
             onChange={event =>
-              table.getColumn(searchKey)?.setFilterValue(event.target.value)
+              table.getColumn(hookSearchKey)?.setFilterValue(event.target.value)
             }
             className="max-w-sm"
           />
@@ -139,18 +114,9 @@ export function DataTable<TData, TValue>({
           <TableHeader>
             {table.getHeaderGroups().map(headerGroup => (
               <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map(header => {
-                  return (
-                    <TableHead key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
-                    </TableHead>
-                  );
-                })}
+                {headerGroup.headers.map(header =>
+                  renderTableHead(header, headerGroup)
+                )}
               </TableRow>
             ))}
           </TableHeader>
@@ -161,14 +127,9 @@ export function DataTable<TData, TValue>({
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
-                  {row.getVisibleCells().map(cell => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
+                  {row
+                    .getVisibleCells()
+                    .map(cell => renderTableCell(cell, row))}
                 </TableRow>
               ))
             ) : (
