@@ -15,14 +15,14 @@ import { Route as LoginIndexRouteImport } from './login/index'
 import { Route as ItemsIndexRouteImport } from './items/index'
 import { Route as DashboardIndexRouteImport } from './dashboard/index'
 import { Route as AssessmentsIndexRouteImport } from './assessments/index'
-import { Route as TemplatesQuestionTypesRouteImport } from './templates/question-types'
-import { Route as TemplatesExamRouteImport } from './templates/exam'
-import { Route as MyAccountScrapRouteImport } from './my-account/scrap'
-import { Route as MyAccountProfileRouteImport } from './my-account/profile'
+import { Route as UserManagementCreateRouteImport } from './user-management/create'
+import { Route as ResourcesCreateRouteImport } from './resources/create'
 import { Route as ItemsCreateRouteImport } from './items/create'
-import { Route as AnalyticUsageRouteImport } from './analytic/usage'
-import { Route as AnalyticPossessionRouteImport } from './analytic/possession'
-import { Route as AnalyticConversionRouteImport } from './analytic/conversion'
+import { Route as AssessmentsCreateRouteImport } from './assessments/create'
+import { Route as TemplatesQuestionTypeIndexRouteImport } from './templates/question-type/index'
+import { Route as TemplatesExamIndexRouteImport } from './templates/exam/index'
+import { Route as MyAccountScrapIndexRouteImport } from './my-account/scrap/index'
+import { Route as MyAccountProfileIndexRouteImport } from './my-account/profile/index'
 import { Route as DatabaseWorkLogsIndexRouteImport } from './database/work-logs/index'
 import { Route as DatabaseUserActivityIndexRouteImport } from './database/user-activity/index'
 import { Route as DatabaseTextbooksIndexRouteImport } from './database/textbooks/index'
@@ -31,6 +31,28 @@ import { Route as DatabaseErrorLogsIndexRouteImport } from './database/error-log
 import { Route as DatabaseDomainsIndexRouteImport } from './database/domains/index'
 import { Route as DatabaseCodesIndexRouteImport } from './database/codes/index'
 import { Route as DatabaseChaptersIndexRouteImport } from './database/chapters/index'
+import { Route as TemplatesQuestionTypeCreateRouteImport } from './templates/question-type/create'
+import { Route as TemplatesExamCreateRouteImport } from './templates/exam/create'
+import { Route as MyAccountProfilePasswordRouteImport } from './my-account/profile/password'
+import { Route as MyAccountProfileEditRouteImport } from './my-account/profile/edit'
+import { Route as DatabaseTextbooksCreateRouteImport } from './database/textbooks/create'
+import { Route as DatabaseSourcesCreateRouteImport } from './database/sources/create'
+import { Route as DatabaseDomainsCreateRouteImport } from './database/domains/create'
+import { Route as DatabaseCodesCreateRouteImport } from './database/codes/create'
+import { Route as DatabaseChaptersCreateRouteImport } from './database/chapters/create'
+import { Route as AssessmentsWizardUnitRouteImport } from './assessments/wizard/unit'
+import { Route as AssessmentsWizardReviewRouteImport } from './assessments/wizard/review'
+import { Route as AssessmentsWizardQuestionTypeRouteImport } from './assessments/wizard/question-type'
+import { Route as AssessmentsWizardGenerateRouteImport } from './assessments/wizard/generate'
+import { Route as AssessmentsWizardCurriculumRouteImport } from './assessments/wizard/curriculum'
+import { Route as AnalyticUsageSourcesRouteImport } from './analytic/usage/sources'
+import { Route as AnalyticUsageQuestionsRouteImport } from './analytic/usage/questions'
+import { Route as AnalyticUsageExamsRouteImport } from './analytic/usage/exams'
+import { Route as AnalyticPossessionSourcesRouteImport } from './analytic/possession/sources'
+import { Route as AnalyticPossessionQuestionsRouteImport } from './analytic/possession/questions'
+import { Route as AnalyticPossessionExamsRouteImport } from './analytic/possession/exams'
+import { Route as AnalyticConversionSolutionRouteImport } from './analytic/conversion/solution'
+import { Route as AnalyticConversionOcrRouteImport } from './analytic/conversion/ocr'
 
 const UserManagementIndexRoute = UserManagementIndexRouteImport.update({
   id: '/user-management/',
@@ -62,24 +84,14 @@ const AssessmentsIndexRoute = AssessmentsIndexRouteImport.update({
   path: '/assessments/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TemplatesQuestionTypesRoute = TemplatesQuestionTypesRouteImport.update({
-  id: '/templates/question-types',
-  path: '/templates/question-types',
+const UserManagementCreateRoute = UserManagementCreateRouteImport.update({
+  id: '/user-management/create',
+  path: '/user-management/create',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TemplatesExamRoute = TemplatesExamRouteImport.update({
-  id: '/templates/exam',
-  path: '/templates/exam',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MyAccountScrapRoute = MyAccountScrapRouteImport.update({
-  id: '/my-account/scrap',
-  path: '/my-account/scrap',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MyAccountProfileRoute = MyAccountProfileRouteImport.update({
-  id: '/my-account/profile',
-  path: '/my-account/profile',
+const ResourcesCreateRoute = ResourcesCreateRouteImport.update({
+  id: '/resources/create',
+  path: '/resources/create',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ItemsCreateRoute = ItemsCreateRouteImport.update({
@@ -87,19 +99,30 @@ const ItemsCreateRoute = ItemsCreateRouteImport.update({
   path: '/items/create',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AnalyticUsageRoute = AnalyticUsageRouteImport.update({
-  id: '/analytic/usage',
-  path: '/analytic/usage',
+const AssessmentsCreateRoute = AssessmentsCreateRouteImport.update({
+  id: '/assessments/create',
+  path: '/assessments/create',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AnalyticPossessionRoute = AnalyticPossessionRouteImport.update({
-  id: '/analytic/possession',
-  path: '/analytic/possession',
+const TemplatesQuestionTypeIndexRoute =
+  TemplatesQuestionTypeIndexRouteImport.update({
+    id: '/templates/question-type/',
+    path: '/templates/question-type/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TemplatesExamIndexRoute = TemplatesExamIndexRouteImport.update({
+  id: '/templates/exam/',
+  path: '/templates/exam/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AnalyticConversionRoute = AnalyticConversionRouteImport.update({
-  id: '/analytic/conversion',
-  path: '/analytic/conversion',
+const MyAccountScrapIndexRoute = MyAccountScrapIndexRouteImport.update({
+  id: '/my-account/scrap/',
+  path: '/my-account/scrap/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyAccountProfileIndexRoute = MyAccountProfileIndexRouteImport.update({
+  id: '/my-account/profile/',
+  path: '/my-account/profile/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DatabaseWorkLogsIndexRoute = DatabaseWorkLogsIndexRouteImport.update({
@@ -143,22 +166,158 @@ const DatabaseChaptersIndexRoute = DatabaseChaptersIndexRouteImport.update({
   path: '/database/chapters/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TemplatesQuestionTypeCreateRoute =
+  TemplatesQuestionTypeCreateRouteImport.update({
+    id: '/templates/question-type/create',
+    path: '/templates/question-type/create',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TemplatesExamCreateRoute = TemplatesExamCreateRouteImport.update({
+  id: '/templates/exam/create',
+  path: '/templates/exam/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyAccountProfilePasswordRoute =
+  MyAccountProfilePasswordRouteImport.update({
+    id: '/my-account/profile/password',
+    path: '/my-account/profile/password',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MyAccountProfileEditRoute = MyAccountProfileEditRouteImport.update({
+  id: '/my-account/profile/edit',
+  path: '/my-account/profile/edit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatabaseTextbooksCreateRoute = DatabaseTextbooksCreateRouteImport.update({
+  id: '/database/textbooks/create',
+  path: '/database/textbooks/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatabaseSourcesCreateRoute = DatabaseSourcesCreateRouteImport.update({
+  id: '/database/sources/create',
+  path: '/database/sources/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatabaseDomainsCreateRoute = DatabaseDomainsCreateRouteImport.update({
+  id: '/database/domains/create',
+  path: '/database/domains/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatabaseCodesCreateRoute = DatabaseCodesCreateRouteImport.update({
+  id: '/database/codes/create',
+  path: '/database/codes/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatabaseChaptersCreateRoute = DatabaseChaptersCreateRouteImport.update({
+  id: '/database/chapters/create',
+  path: '/database/chapters/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssessmentsWizardUnitRoute = AssessmentsWizardUnitRouteImport.update({
+  id: '/assessments/wizard/unit',
+  path: '/assessments/wizard/unit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssessmentsWizardReviewRoute = AssessmentsWizardReviewRouteImport.update({
+  id: '/assessments/wizard/review',
+  path: '/assessments/wizard/review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssessmentsWizardQuestionTypeRoute =
+  AssessmentsWizardQuestionTypeRouteImport.update({
+    id: '/assessments/wizard/question-type',
+    path: '/assessments/wizard/question-type',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AssessmentsWizardGenerateRoute =
+  AssessmentsWizardGenerateRouteImport.update({
+    id: '/assessments/wizard/generate',
+    path: '/assessments/wizard/generate',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AssessmentsWizardCurriculumRoute =
+  AssessmentsWizardCurriculumRouteImport.update({
+    id: '/assessments/wizard/curriculum',
+    path: '/assessments/wizard/curriculum',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AnalyticUsageSourcesRoute = AnalyticUsageSourcesRouteImport.update({
+  id: '/analytic/usage/sources',
+  path: '/analytic/usage/sources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticUsageQuestionsRoute = AnalyticUsageQuestionsRouteImport.update({
+  id: '/analytic/usage/questions',
+  path: '/analytic/usage/questions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticUsageExamsRoute = AnalyticUsageExamsRouteImport.update({
+  id: '/analytic/usage/exams',
+  path: '/analytic/usage/exams',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticPossessionSourcesRoute =
+  AnalyticPossessionSourcesRouteImport.update({
+    id: '/analytic/possession/sources',
+    path: '/analytic/possession/sources',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AnalyticPossessionQuestionsRoute =
+  AnalyticPossessionQuestionsRouteImport.update({
+    id: '/analytic/possession/questions',
+    path: '/analytic/possession/questions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AnalyticPossessionExamsRoute = AnalyticPossessionExamsRouteImport.update({
+  id: '/analytic/possession/exams',
+  path: '/analytic/possession/exams',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticConversionSolutionRoute =
+  AnalyticConversionSolutionRouteImport.update({
+    id: '/analytic/conversion/solution',
+    path: '/analytic/conversion/solution',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AnalyticConversionOcrRoute = AnalyticConversionOcrRouteImport.update({
+  id: '/analytic/conversion/ocr',
+  path: '/analytic/conversion/ocr',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
-  '/analytic/conversion': typeof AnalyticConversionRoute
-  '/analytic/possession': typeof AnalyticPossessionRoute
-  '/analytic/usage': typeof AnalyticUsageRoute
+  '/assessments/create': typeof AssessmentsCreateRoute
   '/items/create': typeof ItemsCreateRoute
-  '/my-account/profile': typeof MyAccountProfileRoute
-  '/my-account/scrap': typeof MyAccountScrapRoute
-  '/templates/exam': typeof TemplatesExamRoute
-  '/templates/question-types': typeof TemplatesQuestionTypesRoute
+  '/resources/create': typeof ResourcesCreateRoute
+  '/user-management/create': typeof UserManagementCreateRoute
   '/assessments': typeof AssessmentsIndexRoute
   '/dashboard': typeof DashboardIndexRoute
   '/items': typeof ItemsIndexRoute
   '/login': typeof LoginIndexRoute
   '/resources': typeof ResourcesIndexRoute
   '/user-management': typeof UserManagementIndexRoute
+  '/analytic/conversion/ocr': typeof AnalyticConversionOcrRoute
+  '/analytic/conversion/solution': typeof AnalyticConversionSolutionRoute
+  '/analytic/possession/exams': typeof AnalyticPossessionExamsRoute
+  '/analytic/possession/questions': typeof AnalyticPossessionQuestionsRoute
+  '/analytic/possession/sources': typeof AnalyticPossessionSourcesRoute
+  '/analytic/usage/exams': typeof AnalyticUsageExamsRoute
+  '/analytic/usage/questions': typeof AnalyticUsageQuestionsRoute
+  '/analytic/usage/sources': typeof AnalyticUsageSourcesRoute
+  '/assessments/wizard/curriculum': typeof AssessmentsWizardCurriculumRoute
+  '/assessments/wizard/generate': typeof AssessmentsWizardGenerateRoute
+  '/assessments/wizard/question-type': typeof AssessmentsWizardQuestionTypeRoute
+  '/assessments/wizard/review': typeof AssessmentsWizardReviewRoute
+  '/assessments/wizard/unit': typeof AssessmentsWizardUnitRoute
+  '/database/chapters/create': typeof DatabaseChaptersCreateRoute
+  '/database/codes/create': typeof DatabaseCodesCreateRoute
+  '/database/domains/create': typeof DatabaseDomainsCreateRoute
+  '/database/sources/create': typeof DatabaseSourcesCreateRoute
+  '/database/textbooks/create': typeof DatabaseTextbooksCreateRoute
+  '/my-account/profile/edit': typeof MyAccountProfileEditRoute
+  '/my-account/profile/password': typeof MyAccountProfilePasswordRoute
+  '/templates/exam/create': typeof TemplatesExamCreateRoute
+  '/templates/question-type/create': typeof TemplatesQuestionTypeCreateRoute
   '/database/chapters': typeof DatabaseChaptersIndexRoute
   '/database/codes': typeof DatabaseCodesIndexRoute
   '/database/domains': typeof DatabaseDomainsIndexRoute
@@ -167,22 +326,44 @@ export interface FileRoutesByFullPath {
   '/database/textbooks': typeof DatabaseTextbooksIndexRoute
   '/database/user-activity': typeof DatabaseUserActivityIndexRoute
   '/database/work-logs': typeof DatabaseWorkLogsIndexRoute
+  '/my-account/profile': typeof MyAccountProfileIndexRoute
+  '/my-account/scrap': typeof MyAccountScrapIndexRoute
+  '/templates/exam': typeof TemplatesExamIndexRoute
+  '/templates/question-type': typeof TemplatesQuestionTypeIndexRoute
 }
 export interface FileRoutesByTo {
-  '/analytic/conversion': typeof AnalyticConversionRoute
-  '/analytic/possession': typeof AnalyticPossessionRoute
-  '/analytic/usage': typeof AnalyticUsageRoute
+  '/assessments/create': typeof AssessmentsCreateRoute
   '/items/create': typeof ItemsCreateRoute
-  '/my-account/profile': typeof MyAccountProfileRoute
-  '/my-account/scrap': typeof MyAccountScrapRoute
-  '/templates/exam': typeof TemplatesExamRoute
-  '/templates/question-types': typeof TemplatesQuestionTypesRoute
+  '/resources/create': typeof ResourcesCreateRoute
+  '/user-management/create': typeof UserManagementCreateRoute
   '/assessments': typeof AssessmentsIndexRoute
   '/dashboard': typeof DashboardIndexRoute
   '/items': typeof ItemsIndexRoute
   '/login': typeof LoginIndexRoute
   '/resources': typeof ResourcesIndexRoute
   '/user-management': typeof UserManagementIndexRoute
+  '/analytic/conversion/ocr': typeof AnalyticConversionOcrRoute
+  '/analytic/conversion/solution': typeof AnalyticConversionSolutionRoute
+  '/analytic/possession/exams': typeof AnalyticPossessionExamsRoute
+  '/analytic/possession/questions': typeof AnalyticPossessionQuestionsRoute
+  '/analytic/possession/sources': typeof AnalyticPossessionSourcesRoute
+  '/analytic/usage/exams': typeof AnalyticUsageExamsRoute
+  '/analytic/usage/questions': typeof AnalyticUsageQuestionsRoute
+  '/analytic/usage/sources': typeof AnalyticUsageSourcesRoute
+  '/assessments/wizard/curriculum': typeof AssessmentsWizardCurriculumRoute
+  '/assessments/wizard/generate': typeof AssessmentsWizardGenerateRoute
+  '/assessments/wizard/question-type': typeof AssessmentsWizardQuestionTypeRoute
+  '/assessments/wizard/review': typeof AssessmentsWizardReviewRoute
+  '/assessments/wizard/unit': typeof AssessmentsWizardUnitRoute
+  '/database/chapters/create': typeof DatabaseChaptersCreateRoute
+  '/database/codes/create': typeof DatabaseCodesCreateRoute
+  '/database/domains/create': typeof DatabaseDomainsCreateRoute
+  '/database/sources/create': typeof DatabaseSourcesCreateRoute
+  '/database/textbooks/create': typeof DatabaseTextbooksCreateRoute
+  '/my-account/profile/edit': typeof MyAccountProfileEditRoute
+  '/my-account/profile/password': typeof MyAccountProfilePasswordRoute
+  '/templates/exam/create': typeof TemplatesExamCreateRoute
+  '/templates/question-type/create': typeof TemplatesQuestionTypeCreateRoute
   '/database/chapters': typeof DatabaseChaptersIndexRoute
   '/database/codes': typeof DatabaseCodesIndexRoute
   '/database/domains': typeof DatabaseDomainsIndexRoute
@@ -191,23 +372,45 @@ export interface FileRoutesByTo {
   '/database/textbooks': typeof DatabaseTextbooksIndexRoute
   '/database/user-activity': typeof DatabaseUserActivityIndexRoute
   '/database/work-logs': typeof DatabaseWorkLogsIndexRoute
+  '/my-account/profile': typeof MyAccountProfileIndexRoute
+  '/my-account/scrap': typeof MyAccountScrapIndexRoute
+  '/templates/exam': typeof TemplatesExamIndexRoute
+  '/templates/question-type': typeof TemplatesQuestionTypeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/analytic/conversion': typeof AnalyticConversionRoute
-  '/analytic/possession': typeof AnalyticPossessionRoute
-  '/analytic/usage': typeof AnalyticUsageRoute
+  '/assessments/create': typeof AssessmentsCreateRoute
   '/items/create': typeof ItemsCreateRoute
-  '/my-account/profile': typeof MyAccountProfileRoute
-  '/my-account/scrap': typeof MyAccountScrapRoute
-  '/templates/exam': typeof TemplatesExamRoute
-  '/templates/question-types': typeof TemplatesQuestionTypesRoute
+  '/resources/create': typeof ResourcesCreateRoute
+  '/user-management/create': typeof UserManagementCreateRoute
   '/assessments/': typeof AssessmentsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/items/': typeof ItemsIndexRoute
   '/login/': typeof LoginIndexRoute
   '/resources/': typeof ResourcesIndexRoute
   '/user-management/': typeof UserManagementIndexRoute
+  '/analytic/conversion/ocr': typeof AnalyticConversionOcrRoute
+  '/analytic/conversion/solution': typeof AnalyticConversionSolutionRoute
+  '/analytic/possession/exams': typeof AnalyticPossessionExamsRoute
+  '/analytic/possession/questions': typeof AnalyticPossessionQuestionsRoute
+  '/analytic/possession/sources': typeof AnalyticPossessionSourcesRoute
+  '/analytic/usage/exams': typeof AnalyticUsageExamsRoute
+  '/analytic/usage/questions': typeof AnalyticUsageQuestionsRoute
+  '/analytic/usage/sources': typeof AnalyticUsageSourcesRoute
+  '/assessments/wizard/curriculum': typeof AssessmentsWizardCurriculumRoute
+  '/assessments/wizard/generate': typeof AssessmentsWizardGenerateRoute
+  '/assessments/wizard/question-type': typeof AssessmentsWizardQuestionTypeRoute
+  '/assessments/wizard/review': typeof AssessmentsWizardReviewRoute
+  '/assessments/wizard/unit': typeof AssessmentsWizardUnitRoute
+  '/database/chapters/create': typeof DatabaseChaptersCreateRoute
+  '/database/codes/create': typeof DatabaseCodesCreateRoute
+  '/database/domains/create': typeof DatabaseDomainsCreateRoute
+  '/database/sources/create': typeof DatabaseSourcesCreateRoute
+  '/database/textbooks/create': typeof DatabaseTextbooksCreateRoute
+  '/my-account/profile/edit': typeof MyAccountProfileEditRoute
+  '/my-account/profile/password': typeof MyAccountProfilePasswordRoute
+  '/templates/exam/create': typeof TemplatesExamCreateRoute
+  '/templates/question-type/create': typeof TemplatesQuestionTypeCreateRoute
   '/database/chapters/': typeof DatabaseChaptersIndexRoute
   '/database/codes/': typeof DatabaseCodesIndexRoute
   '/database/domains/': typeof DatabaseDomainsIndexRoute
@@ -216,24 +419,46 @@ export interface FileRoutesById {
   '/database/textbooks/': typeof DatabaseTextbooksIndexRoute
   '/database/user-activity/': typeof DatabaseUserActivityIndexRoute
   '/database/work-logs/': typeof DatabaseWorkLogsIndexRoute
+  '/my-account/profile/': typeof MyAccountProfileIndexRoute
+  '/my-account/scrap/': typeof MyAccountScrapIndexRoute
+  '/templates/exam/': typeof TemplatesExamIndexRoute
+  '/templates/question-type/': typeof TemplatesQuestionTypeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/analytic/conversion'
-    | '/analytic/possession'
-    | '/analytic/usage'
+    | '/assessments/create'
     | '/items/create'
-    | '/my-account/profile'
-    | '/my-account/scrap'
-    | '/templates/exam'
-    | '/templates/question-types'
+    | '/resources/create'
+    | '/user-management/create'
     | '/assessments'
     | '/dashboard'
     | '/items'
     | '/login'
     | '/resources'
     | '/user-management'
+    | '/analytic/conversion/ocr'
+    | '/analytic/conversion/solution'
+    | '/analytic/possession/exams'
+    | '/analytic/possession/questions'
+    | '/analytic/possession/sources'
+    | '/analytic/usage/exams'
+    | '/analytic/usage/questions'
+    | '/analytic/usage/sources'
+    | '/assessments/wizard/curriculum'
+    | '/assessments/wizard/generate'
+    | '/assessments/wizard/question-type'
+    | '/assessments/wizard/review'
+    | '/assessments/wizard/unit'
+    | '/database/chapters/create'
+    | '/database/codes/create'
+    | '/database/domains/create'
+    | '/database/sources/create'
+    | '/database/textbooks/create'
+    | '/my-account/profile/edit'
+    | '/my-account/profile/password'
+    | '/templates/exam/create'
+    | '/templates/question-type/create'
     | '/database/chapters'
     | '/database/codes'
     | '/database/domains'
@@ -242,22 +467,44 @@ export interface FileRouteTypes {
     | '/database/textbooks'
     | '/database/user-activity'
     | '/database/work-logs'
+    | '/my-account/profile'
+    | '/my-account/scrap'
+    | '/templates/exam'
+    | '/templates/question-type'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/analytic/conversion'
-    | '/analytic/possession'
-    | '/analytic/usage'
+    | '/assessments/create'
     | '/items/create'
-    | '/my-account/profile'
-    | '/my-account/scrap'
-    | '/templates/exam'
-    | '/templates/question-types'
+    | '/resources/create'
+    | '/user-management/create'
     | '/assessments'
     | '/dashboard'
     | '/items'
     | '/login'
     | '/resources'
     | '/user-management'
+    | '/analytic/conversion/ocr'
+    | '/analytic/conversion/solution'
+    | '/analytic/possession/exams'
+    | '/analytic/possession/questions'
+    | '/analytic/possession/sources'
+    | '/analytic/usage/exams'
+    | '/analytic/usage/questions'
+    | '/analytic/usage/sources'
+    | '/assessments/wizard/curriculum'
+    | '/assessments/wizard/generate'
+    | '/assessments/wizard/question-type'
+    | '/assessments/wizard/review'
+    | '/assessments/wizard/unit'
+    | '/database/chapters/create'
+    | '/database/codes/create'
+    | '/database/domains/create'
+    | '/database/sources/create'
+    | '/database/textbooks/create'
+    | '/my-account/profile/edit'
+    | '/my-account/profile/password'
+    | '/templates/exam/create'
+    | '/templates/question-type/create'
     | '/database/chapters'
     | '/database/codes'
     | '/database/domains'
@@ -266,22 +513,44 @@ export interface FileRouteTypes {
     | '/database/textbooks'
     | '/database/user-activity'
     | '/database/work-logs'
-  id:
-    | '__root__'
-    | '/analytic/conversion'
-    | '/analytic/possession'
-    | '/analytic/usage'
-    | '/items/create'
     | '/my-account/profile'
     | '/my-account/scrap'
     | '/templates/exam'
-    | '/templates/question-types'
+    | '/templates/question-type'
+  id:
+    | '__root__'
+    | '/assessments/create'
+    | '/items/create'
+    | '/resources/create'
+    | '/user-management/create'
     | '/assessments/'
     | '/dashboard/'
     | '/items/'
     | '/login/'
     | '/resources/'
     | '/user-management/'
+    | '/analytic/conversion/ocr'
+    | '/analytic/conversion/solution'
+    | '/analytic/possession/exams'
+    | '/analytic/possession/questions'
+    | '/analytic/possession/sources'
+    | '/analytic/usage/exams'
+    | '/analytic/usage/questions'
+    | '/analytic/usage/sources'
+    | '/assessments/wizard/curriculum'
+    | '/assessments/wizard/generate'
+    | '/assessments/wizard/question-type'
+    | '/assessments/wizard/review'
+    | '/assessments/wizard/unit'
+    | '/database/chapters/create'
+    | '/database/codes/create'
+    | '/database/domains/create'
+    | '/database/sources/create'
+    | '/database/textbooks/create'
+    | '/my-account/profile/edit'
+    | '/my-account/profile/password'
+    | '/templates/exam/create'
+    | '/templates/question-type/create'
     | '/database/chapters/'
     | '/database/codes/'
     | '/database/domains/'
@@ -290,23 +559,45 @@ export interface FileRouteTypes {
     | '/database/textbooks/'
     | '/database/user-activity/'
     | '/database/work-logs/'
+    | '/my-account/profile/'
+    | '/my-account/scrap/'
+    | '/templates/exam/'
+    | '/templates/question-type/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  AnalyticConversionRoute: typeof AnalyticConversionRoute
-  AnalyticPossessionRoute: typeof AnalyticPossessionRoute
-  AnalyticUsageRoute: typeof AnalyticUsageRoute
+  AssessmentsCreateRoute: typeof AssessmentsCreateRoute
   ItemsCreateRoute: typeof ItemsCreateRoute
-  MyAccountProfileRoute: typeof MyAccountProfileRoute
-  MyAccountScrapRoute: typeof MyAccountScrapRoute
-  TemplatesExamRoute: typeof TemplatesExamRoute
-  TemplatesQuestionTypesRoute: typeof TemplatesQuestionTypesRoute
+  ResourcesCreateRoute: typeof ResourcesCreateRoute
+  UserManagementCreateRoute: typeof UserManagementCreateRoute
   AssessmentsIndexRoute: typeof AssessmentsIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
   ItemsIndexRoute: typeof ItemsIndexRoute
   LoginIndexRoute: typeof LoginIndexRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
   UserManagementIndexRoute: typeof UserManagementIndexRoute
+  AnalyticConversionOcrRoute: typeof AnalyticConversionOcrRoute
+  AnalyticConversionSolutionRoute: typeof AnalyticConversionSolutionRoute
+  AnalyticPossessionExamsRoute: typeof AnalyticPossessionExamsRoute
+  AnalyticPossessionQuestionsRoute: typeof AnalyticPossessionQuestionsRoute
+  AnalyticPossessionSourcesRoute: typeof AnalyticPossessionSourcesRoute
+  AnalyticUsageExamsRoute: typeof AnalyticUsageExamsRoute
+  AnalyticUsageQuestionsRoute: typeof AnalyticUsageQuestionsRoute
+  AnalyticUsageSourcesRoute: typeof AnalyticUsageSourcesRoute
+  AssessmentsWizardCurriculumRoute: typeof AssessmentsWizardCurriculumRoute
+  AssessmentsWizardGenerateRoute: typeof AssessmentsWizardGenerateRoute
+  AssessmentsWizardQuestionTypeRoute: typeof AssessmentsWizardQuestionTypeRoute
+  AssessmentsWizardReviewRoute: typeof AssessmentsWizardReviewRoute
+  AssessmentsWizardUnitRoute: typeof AssessmentsWizardUnitRoute
+  DatabaseChaptersCreateRoute: typeof DatabaseChaptersCreateRoute
+  DatabaseCodesCreateRoute: typeof DatabaseCodesCreateRoute
+  DatabaseDomainsCreateRoute: typeof DatabaseDomainsCreateRoute
+  DatabaseSourcesCreateRoute: typeof DatabaseSourcesCreateRoute
+  DatabaseTextbooksCreateRoute: typeof DatabaseTextbooksCreateRoute
+  MyAccountProfileEditRoute: typeof MyAccountProfileEditRoute
+  MyAccountProfilePasswordRoute: typeof MyAccountProfilePasswordRoute
+  TemplatesExamCreateRoute: typeof TemplatesExamCreateRoute
+  TemplatesQuestionTypeCreateRoute: typeof TemplatesQuestionTypeCreateRoute
   DatabaseChaptersIndexRoute: typeof DatabaseChaptersIndexRoute
   DatabaseCodesIndexRoute: typeof DatabaseCodesIndexRoute
   DatabaseDomainsIndexRoute: typeof DatabaseDomainsIndexRoute
@@ -315,6 +606,10 @@ export interface RootRouteChildren {
   DatabaseTextbooksIndexRoute: typeof DatabaseTextbooksIndexRoute
   DatabaseUserActivityIndexRoute: typeof DatabaseUserActivityIndexRoute
   DatabaseWorkLogsIndexRoute: typeof DatabaseWorkLogsIndexRoute
+  MyAccountProfileIndexRoute: typeof MyAccountProfileIndexRoute
+  MyAccountScrapIndexRoute: typeof MyAccountScrapIndexRoute
+  TemplatesExamIndexRoute: typeof TemplatesExamIndexRoute
+  TemplatesQuestionTypeIndexRoute: typeof TemplatesQuestionTypeIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -361,32 +656,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AssessmentsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/templates/question-types': {
-      id: '/templates/question-types'
-      path: '/templates/question-types'
-      fullPath: '/templates/question-types'
-      preLoaderRoute: typeof TemplatesQuestionTypesRouteImport
+    '/user-management/create': {
+      id: '/user-management/create'
+      path: '/user-management/create'
+      fullPath: '/user-management/create'
+      preLoaderRoute: typeof UserManagementCreateRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/templates/exam': {
-      id: '/templates/exam'
-      path: '/templates/exam'
-      fullPath: '/templates/exam'
-      preLoaderRoute: typeof TemplatesExamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/my-account/scrap': {
-      id: '/my-account/scrap'
-      path: '/my-account/scrap'
-      fullPath: '/my-account/scrap'
-      preLoaderRoute: typeof MyAccountScrapRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/my-account/profile': {
-      id: '/my-account/profile'
-      path: '/my-account/profile'
-      fullPath: '/my-account/profile'
-      preLoaderRoute: typeof MyAccountProfileRouteImport
+    '/resources/create': {
+      id: '/resources/create'
+      path: '/resources/create'
+      fullPath: '/resources/create'
+      preLoaderRoute: typeof ResourcesCreateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/items/create': {
@@ -396,25 +677,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ItemsCreateRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/analytic/usage': {
-      id: '/analytic/usage'
-      path: '/analytic/usage'
-      fullPath: '/analytic/usage'
-      preLoaderRoute: typeof AnalyticUsageRouteImport
+    '/assessments/create': {
+      id: '/assessments/create'
+      path: '/assessments/create'
+      fullPath: '/assessments/create'
+      preLoaderRoute: typeof AssessmentsCreateRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/analytic/possession': {
-      id: '/analytic/possession'
-      path: '/analytic/possession'
-      fullPath: '/analytic/possession'
-      preLoaderRoute: typeof AnalyticPossessionRouteImport
+    '/templates/question-type/': {
+      id: '/templates/question-type/'
+      path: '/templates/question-type'
+      fullPath: '/templates/question-type'
+      preLoaderRoute: typeof TemplatesQuestionTypeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/analytic/conversion': {
-      id: '/analytic/conversion'
-      path: '/analytic/conversion'
-      fullPath: '/analytic/conversion'
-      preLoaderRoute: typeof AnalyticConversionRouteImport
+    '/templates/exam/': {
+      id: '/templates/exam/'
+      path: '/templates/exam'
+      fullPath: '/templates/exam'
+      preLoaderRoute: typeof TemplatesExamIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-account/scrap/': {
+      id: '/my-account/scrap/'
+      path: '/my-account/scrap'
+      fullPath: '/my-account/scrap'
+      preLoaderRoute: typeof MyAccountScrapIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-account/profile/': {
+      id: '/my-account/profile/'
+      path: '/my-account/profile'
+      fullPath: '/my-account/profile'
+      preLoaderRoute: typeof MyAccountProfileIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/database/work-logs/': {
@@ -473,24 +768,196 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DatabaseChaptersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/templates/question-type/create': {
+      id: '/templates/question-type/create'
+      path: '/templates/question-type/create'
+      fullPath: '/templates/question-type/create'
+      preLoaderRoute: typeof TemplatesQuestionTypeCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/templates/exam/create': {
+      id: '/templates/exam/create'
+      path: '/templates/exam/create'
+      fullPath: '/templates/exam/create'
+      preLoaderRoute: typeof TemplatesExamCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-account/profile/password': {
+      id: '/my-account/profile/password'
+      path: '/my-account/profile/password'
+      fullPath: '/my-account/profile/password'
+      preLoaderRoute: typeof MyAccountProfilePasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-account/profile/edit': {
+      id: '/my-account/profile/edit'
+      path: '/my-account/profile/edit'
+      fullPath: '/my-account/profile/edit'
+      preLoaderRoute: typeof MyAccountProfileEditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/textbooks/create': {
+      id: '/database/textbooks/create'
+      path: '/database/textbooks/create'
+      fullPath: '/database/textbooks/create'
+      preLoaderRoute: typeof DatabaseTextbooksCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/sources/create': {
+      id: '/database/sources/create'
+      path: '/database/sources/create'
+      fullPath: '/database/sources/create'
+      preLoaderRoute: typeof DatabaseSourcesCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/domains/create': {
+      id: '/database/domains/create'
+      path: '/database/domains/create'
+      fullPath: '/database/domains/create'
+      preLoaderRoute: typeof DatabaseDomainsCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/codes/create': {
+      id: '/database/codes/create'
+      path: '/database/codes/create'
+      fullPath: '/database/codes/create'
+      preLoaderRoute: typeof DatabaseCodesCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/database/chapters/create': {
+      id: '/database/chapters/create'
+      path: '/database/chapters/create'
+      fullPath: '/database/chapters/create'
+      preLoaderRoute: typeof DatabaseChaptersCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assessments/wizard/unit': {
+      id: '/assessments/wizard/unit'
+      path: '/assessments/wizard/unit'
+      fullPath: '/assessments/wizard/unit'
+      preLoaderRoute: typeof AssessmentsWizardUnitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assessments/wizard/review': {
+      id: '/assessments/wizard/review'
+      path: '/assessments/wizard/review'
+      fullPath: '/assessments/wizard/review'
+      preLoaderRoute: typeof AssessmentsWizardReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assessments/wizard/question-type': {
+      id: '/assessments/wizard/question-type'
+      path: '/assessments/wizard/question-type'
+      fullPath: '/assessments/wizard/question-type'
+      preLoaderRoute: typeof AssessmentsWizardQuestionTypeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assessments/wizard/generate': {
+      id: '/assessments/wizard/generate'
+      path: '/assessments/wizard/generate'
+      fullPath: '/assessments/wizard/generate'
+      preLoaderRoute: typeof AssessmentsWizardGenerateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assessments/wizard/curriculum': {
+      id: '/assessments/wizard/curriculum'
+      path: '/assessments/wizard/curriculum'
+      fullPath: '/assessments/wizard/curriculum'
+      preLoaderRoute: typeof AssessmentsWizardCurriculumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytic/usage/sources': {
+      id: '/analytic/usage/sources'
+      path: '/analytic/usage/sources'
+      fullPath: '/analytic/usage/sources'
+      preLoaderRoute: typeof AnalyticUsageSourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytic/usage/questions': {
+      id: '/analytic/usage/questions'
+      path: '/analytic/usage/questions'
+      fullPath: '/analytic/usage/questions'
+      preLoaderRoute: typeof AnalyticUsageQuestionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytic/usage/exams': {
+      id: '/analytic/usage/exams'
+      path: '/analytic/usage/exams'
+      fullPath: '/analytic/usage/exams'
+      preLoaderRoute: typeof AnalyticUsageExamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytic/possession/sources': {
+      id: '/analytic/possession/sources'
+      path: '/analytic/possession/sources'
+      fullPath: '/analytic/possession/sources'
+      preLoaderRoute: typeof AnalyticPossessionSourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytic/possession/questions': {
+      id: '/analytic/possession/questions'
+      path: '/analytic/possession/questions'
+      fullPath: '/analytic/possession/questions'
+      preLoaderRoute: typeof AnalyticPossessionQuestionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytic/possession/exams': {
+      id: '/analytic/possession/exams'
+      path: '/analytic/possession/exams'
+      fullPath: '/analytic/possession/exams'
+      preLoaderRoute: typeof AnalyticPossessionExamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytic/conversion/solution': {
+      id: '/analytic/conversion/solution'
+      path: '/analytic/conversion/solution'
+      fullPath: '/analytic/conversion/solution'
+      preLoaderRoute: typeof AnalyticConversionSolutionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytic/conversion/ocr': {
+      id: '/analytic/conversion/ocr'
+      path: '/analytic/conversion/ocr'
+      fullPath: '/analytic/conversion/ocr'
+      preLoaderRoute: typeof AnalyticConversionOcrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  AnalyticConversionRoute: AnalyticConversionRoute,
-  AnalyticPossessionRoute: AnalyticPossessionRoute,
-  AnalyticUsageRoute: AnalyticUsageRoute,
+  AssessmentsCreateRoute: AssessmentsCreateRoute,
   ItemsCreateRoute: ItemsCreateRoute,
-  MyAccountProfileRoute: MyAccountProfileRoute,
-  MyAccountScrapRoute: MyAccountScrapRoute,
-  TemplatesExamRoute: TemplatesExamRoute,
-  TemplatesQuestionTypesRoute: TemplatesQuestionTypesRoute,
+  ResourcesCreateRoute: ResourcesCreateRoute,
+  UserManagementCreateRoute: UserManagementCreateRoute,
   AssessmentsIndexRoute: AssessmentsIndexRoute,
   DashboardIndexRoute: DashboardIndexRoute,
   ItemsIndexRoute: ItemsIndexRoute,
   LoginIndexRoute: LoginIndexRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
   UserManagementIndexRoute: UserManagementIndexRoute,
+  AnalyticConversionOcrRoute: AnalyticConversionOcrRoute,
+  AnalyticConversionSolutionRoute: AnalyticConversionSolutionRoute,
+  AnalyticPossessionExamsRoute: AnalyticPossessionExamsRoute,
+  AnalyticPossessionQuestionsRoute: AnalyticPossessionQuestionsRoute,
+  AnalyticPossessionSourcesRoute: AnalyticPossessionSourcesRoute,
+  AnalyticUsageExamsRoute: AnalyticUsageExamsRoute,
+  AnalyticUsageQuestionsRoute: AnalyticUsageQuestionsRoute,
+  AnalyticUsageSourcesRoute: AnalyticUsageSourcesRoute,
+  AssessmentsWizardCurriculumRoute: AssessmentsWizardCurriculumRoute,
+  AssessmentsWizardGenerateRoute: AssessmentsWizardGenerateRoute,
+  AssessmentsWizardQuestionTypeRoute: AssessmentsWizardQuestionTypeRoute,
+  AssessmentsWizardReviewRoute: AssessmentsWizardReviewRoute,
+  AssessmentsWizardUnitRoute: AssessmentsWizardUnitRoute,
+  DatabaseChaptersCreateRoute: DatabaseChaptersCreateRoute,
+  DatabaseCodesCreateRoute: DatabaseCodesCreateRoute,
+  DatabaseDomainsCreateRoute: DatabaseDomainsCreateRoute,
+  DatabaseSourcesCreateRoute: DatabaseSourcesCreateRoute,
+  DatabaseTextbooksCreateRoute: DatabaseTextbooksCreateRoute,
+  MyAccountProfileEditRoute: MyAccountProfileEditRoute,
+  MyAccountProfilePasswordRoute: MyAccountProfilePasswordRoute,
+  TemplatesExamCreateRoute: TemplatesExamCreateRoute,
+  TemplatesQuestionTypeCreateRoute: TemplatesQuestionTypeCreateRoute,
   DatabaseChaptersIndexRoute: DatabaseChaptersIndexRoute,
   DatabaseCodesIndexRoute: DatabaseCodesIndexRoute,
   DatabaseDomainsIndexRoute: DatabaseDomainsIndexRoute,
@@ -499,6 +966,10 @@ const rootRouteChildren: RootRouteChildren = {
   DatabaseTextbooksIndexRoute: DatabaseTextbooksIndexRoute,
   DatabaseUserActivityIndexRoute: DatabaseUserActivityIndexRoute,
   DatabaseWorkLogsIndexRoute: DatabaseWorkLogsIndexRoute,
+  MyAccountProfileIndexRoute: MyAccountProfileIndexRoute,
+  MyAccountScrapIndexRoute: MyAccountScrapIndexRoute,
+  TemplatesExamIndexRoute: TemplatesExamIndexRoute,
+  TemplatesQuestionTypeIndexRoute: TemplatesQuestionTypeIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

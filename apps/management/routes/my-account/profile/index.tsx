@@ -11,7 +11,7 @@ import {
 } from "@workspace/ui/components/card";
 import { Contact, SquareAsterisk } from "lucide-react";
 
-export const Route = createFileRoute("/my-account/profile")({
+export const Route = createFileRoute("/my-account/profile/")({
   component: Profile,
 });
 

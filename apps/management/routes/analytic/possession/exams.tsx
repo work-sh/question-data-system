@@ -22,7 +22,7 @@ import {
   Users,
 } from "lucide-react";
 
-export const Route = createFileRoute("/analytic/possession")({
+export const Route = createFileRoute("/analytic/possession/exams")({
   component: PossessionStatsPage,
 });
 

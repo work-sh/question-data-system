@@ -21,7 +21,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-export const Route = createFileRoute("/analytic/conversion")({
+export const Route = createFileRoute("/analytic/conversion/solution")({
   component: ConversionStatsPage,
 });
 

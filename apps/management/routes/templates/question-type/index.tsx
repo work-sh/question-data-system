@@ -13,7 +13,7 @@ import {
 import { Label } from "@workspace/ui/components/label";
 import { Copy, Edit, Eye, Plus, Settings, Trash2 } from "lucide-react";
 
-export const Route = createFileRoute("/templates/question-types")({
+export const Route = createFileRoute("/templates/question-type/")({
   component: QuestionTypesPage,
 });
 

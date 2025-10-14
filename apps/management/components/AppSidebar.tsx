@@ -49,13 +49,13 @@ const data = {
       isActive: false,
     },
     {
-      title: "문항 관리",
+      title: "문항 라이브러리",
       url: "/items",
       icon: BookOpen,
       isActive: false,
     },
     {
-      title: "평가세트 관리",
+      title: "평가",
       url: "/assessments",
       icon: FileText,
       isActive: false,
@@ -68,7 +68,7 @@ const data = {
     },
     {
       title: "데이터베이스 관리",
-      url: "/",
+      url: "#",
       icon: Database,
       isActive: false,
       items: [
@@ -113,7 +113,7 @@ const data = {
       items: [
         {
           title: "문항유형",
-          url: "/templates/question-types",
+          url: "/templates/question-type",
         },
         {
           title: "시험지",
@@ -128,15 +128,15 @@ const data = {
       items: [
         {
           title: "변환통계",
-          url: "/analytic/conversion",
+          url: "/analytic/conversion/solution",
         },
         {
           title: "보유통계",
-          url: "/analytic/possession",
+          url: "/analytic/possession/exams",
         },
         {
           title: "사용통계",
-          url: "/analytic/usage",
+          url: "/analytic/usage/exams",
         },
       ],
     },

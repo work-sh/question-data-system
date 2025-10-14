@@ -23,7 +23,7 @@ import {
   Users,
 } from "lucide-react";
 
-export const Route = createFileRoute("/templates/exam")({
+export const Route = createFileRoute("/templates/exam/")({
   component: TestPapersPage,
 });
 
