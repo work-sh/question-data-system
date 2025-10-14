@@ -1,17 +1,27 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
-import { Button } from "@workspace/ui/components/button"
-import { Input } from "@workspace/ui/components/input"
-import { Label } from "@workspace/ui/components/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@workspace/ui/components/select"
-import { ArrowLeft, Save } from "lucide-react"
-import { PageHeader } from "@/components/PageHeader"
-import { PageContainer } from "@/components/PageContainer"
-import { Link } from '@tanstack/react-router'
+import { PageContainer } from "@/components/PageContainer";
+import { PageHeader } from "@/components/PageHeader";
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card";
+import { Input } from "@workspace/ui/components/input";
+import { Label } from "@workspace/ui/components/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@workspace/ui/components/select";
+import { ArrowLeft, Save } from "lucide-react";
 
-export const Route = createFileRoute('/items/create')({
+export const Route = createFileRoute("/items/create")({
   component: CreateQuestionPage,
-})
+});
 
 function CreateQuestionPage() {
   return (
@@ -24,12 +34,12 @@ function CreateQuestionPage() {
             label: "목록으로",
             icon: ArrowLeft,
             variant: "outline",
-            href: "/questions"
+            href: "/questions",
           },
           {
             label: "저장",
-            icon: Save
-          }
+            icon: Save,
+          },
         ]}
       />
 
@@ -80,17 +90,12 @@ function CreateQuestionPage() {
         <Card>
           <CardHeader>
             <CardTitle>문항 내용</CardTitle>
-            <CardDescription>
-              문항의 내용과 정답을 입력합니다
-            </CardDescription>
+            <CardDescription>문항의 내용과 정답을 입력합니다</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="content">문제 내용</Label>
-              <Input
-                id="content"
-                placeholder="문제 내용을 입력하세요"
-              />
+              <Input id="content" placeholder="문제 내용을 입력하세요" />
             </div>
 
             <div className="space-y-2">
@@ -110,14 +115,11 @@ function CreateQuestionPage() {
 
             <div className="space-y-2">
               <Label htmlFor="explanation">해설</Label>
-              <Input
-                id="explanation"
-                placeholder="해설을 입력하세요"
-              />
+              <Input id="explanation" placeholder="해설을 입력하세요" />
             </div>
           </CardContent>
         </Card>
       </div>
     </PageContainer>
-  )
+  );
 }

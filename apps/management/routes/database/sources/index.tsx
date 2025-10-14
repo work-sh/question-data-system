@@ -1,39 +1,39 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Button } from "@workspace/ui/components/button"
-import { List, FilePlus, NotepadTextDashed, Edit } from "lucide-react"
-import { PageHeader } from "@/components/PageHeader"
-import { PageContainer } from "@/components/PageContainer"
-import { SearchFilter } from "@/components/SearchFilter"
+import { PageContainer } from "@/components/PageContainer";
+import { PageHeader } from "@/components/PageHeader";
+import { SearchFilter } from "@/components/SearchFilter";
+import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@workspace/ui/components/button";
+import { Edit, FilePlus, List, NotepadTextDashed } from "lucide-react";
 
-export const Route = createFileRoute('/database/sources/')({
+export const Route = createFileRoute("/database/sources/")({
   component: SourcesPage,
-})
+});
 
 function SourcesPage() {
   const sources = [
     {
-      id: 'src001',
-      title: '교육부',
-      description: '교육부 공식 출처',
-      type: '공식',
-      status: '활성',
-      created: '2024-01-15'
-    }
-  ]
+      id: "src001",
+      title: "교육부",
+      description: "교육부 공식 출처",
+      type: "공식",
+      status: "활성",
+      created: "2024-01-15",
+    },
+  ];
 
   const filterFields = [
     {
-      type: 'select' as const,
-      label: '유형',
-      placeholder: '유형 선택',
+      type: "select" as const,
+      label: "유형",
+      placeholder: "유형 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: 'official', label: '공식' },
-        { value: 'private', label: '사설' },
-        { value: 'other', label: '기타' }
-      ]
-    }
-  ]
+        { value: "all", label: "전체" },
+        { value: "official", label: "공식" },
+        { value: "private", label: "사설" },
+        { value: "other", label: "기타" },
+      ],
+    },
+  ];
 
   return (
     <PageContainer>
@@ -44,12 +44,12 @@ function SourcesPage() {
           {
             label: "목록",
             icon: List,
-            variant: "outline"
+            variant: "outline",
           },
           {
             label: "등록",
-            icon: FilePlus
-          }
+            icon: FilePlus,
+          },
         ]}
       />
 
@@ -61,7 +61,7 @@ function SourcesPage() {
       />
 
       <div className="space-y-4">
-        {sources.map((source) => (
+        {sources.map(source => (
           <div key={source.id} className="border rounded-lg p-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -70,7 +70,9 @@ function SourcesPage() {
                 </div>
                 <div>
                   <h3 className="font-medium">{source.title}</h3>
-                  <p className="text-sm text-muted-foreground">{source.description}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {source.description}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
@@ -89,5 +91,5 @@ function SourcesPage() {
         ))}
       </div>
     </PageContainer>
-  )
+  );
 }

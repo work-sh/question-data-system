@@ -1,37 +1,49 @@
-import { ReactNode } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
-import { Button } from "@workspace/ui/components/button"
-import { Input } from "@workspace/ui/components/input"
-import { Label } from "@workspace/ui/components/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@workspace/ui/components/select"
-import { Search, Filter } from "lucide-react"
+import { Button } from "@workspace/ui/components/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card";
+import { Input } from "@workspace/ui/components/input";
+import { Label } from "@workspace/ui/components/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@workspace/ui/components/select";
+import { Filter, Search } from "lucide-react";
+import { ReactNode } from "react";
 
 interface FilterField {
-  type: 'input' | 'select'
-  label: string
-  placeholder?: string
-  options?: { value: string; label: string }[]
-  className?: string
+  type: "input" | "select";
+  label: string;
+  placeholder?: string;
+  options?: { value: string; label: string }[];
+  className?: string;
 }
 
 interface SearchFilterProps {
-  title?: string
-  description?: string
-  searchPlaceholder?: string
-  filterFields?: FilterField[]
-  onSearch?: () => void
-  onFilter?: () => void
-  children?: ReactNode
+  title?: string;
+  description?: string;
+  searchPlaceholder?: string;
+  filterFields?: FilterField[];
+  onSearch?: () => void;
+  onFilter?: () => void;
+  children?: ReactNode;
 }
 
-export function SearchFilter({ 
+export function SearchFilter({
   title = "검색 및 필터",
   description = "원하는 조건으로 데이터를 검색합니다",
   searchPlaceholder = "검색어를 입력하세요",
   filterFields = [],
   onSearch,
   onFilter,
-  children
+  children,
 }: SearchFilterProps) {
   return (
     <Card>
@@ -44,8 +56,8 @@ export function SearchFilter({
           {/* 검색 입력 */}
           <div className="space-y-2">
             <Label htmlFor="search">검색어</Label>
-            <Input 
-              id="search" 
+            <Input
+              id="search"
               placeholder={searchPlaceholder}
               className="w-full"
             />
@@ -53,9 +65,9 @@ export function SearchFilter({
 
           {/* 동적 필터 필드들 */}
           {filterFields.map((field, index) => (
-            <div key={index} className={`space-y-2 ${field.className || ''}`}>
+            <div key={index} className={`space-y-2 ${field.className || ""}`}>
               <Label htmlFor={`filter-${index}`}>{field.label}</Label>
-              {field.type === 'input' ? (
+              {field.type === "input" ? (
                 <Input
                   id={`filter-${index}`}
                   placeholder={field.placeholder}
@@ -64,10 +76,12 @@ export function SearchFilter({
               ) : (
                 <Select>
                   <SelectTrigger>
-                    <SelectValue placeholder={field.placeholder || `선택하세요`} />
+                    <SelectValue
+                      placeholder={field.placeholder || `선택하세요`}
+                    />
                   </SelectTrigger>
                   <SelectContent>
-                    {field.options?.map((option) => (
+                    {field.options?.map(option => (
                       <SelectItem key={option.value} value={option.value}>
                         {option.label}
                       </SelectItem>
@@ -95,5 +109,5 @@ export function SearchFilter({
         {children}
       </CardContent>
     </Card>
-  )
+  );
 }

@@ -1,25 +1,31 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
-import { Button } from "@workspace/ui/components/button"
-import { 
-  FileText, 
-  Plus, 
-  Edit, 
-  Trash2,
-  Eye,
-  Copy,
-  Download,
+import { PageContainer } from "@/components/PageContainer";
+import { PageHeader } from "@/components/PageHeader";
+import { SearchFilter } from "@/components/SearchFilter";
+import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@workspace/ui/components/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card";
+import {
   Calendar,
   Clock,
+  Copy,
+  Download,
+  Edit,
+  Eye,
+  FileText,
+  Plus,
+  Trash2,
   Users,
-} from "lucide-react"
-import { PageHeader } from '@/components/PageHeader'
-import { PageContainer } from '@/components/PageContainer'
-import { SearchFilter } from '@/components/SearchFilter'
+} from "lucide-react";
 
-export const Route = createFileRoute('/templates/exam')({
+export const Route = createFileRoute("/templates/exam")({
   component: TestPapersPage,
-})
+});
 
 function TestPapersPage() {
   // 임시 데이터
@@ -34,7 +40,7 @@ function TestPapersPage() {
       totalScore: 100,
       status: "활성",
       createdAt: "2024-01-15",
-      updatedAt: "2024-01-15"
+      updatedAt: "2024-01-15",
     },
     {
       id: 2,
@@ -46,7 +52,7 @@ function TestPapersPage() {
       totalScore: 100,
       status: "활성",
       createdAt: "2024-01-14",
-      updatedAt: "2024-01-14"
+      updatedAt: "2024-01-14",
     },
     {
       id: 3,
@@ -58,45 +64,45 @@ function TestPapersPage() {
       totalScore: 100,
       status: "비활성",
       createdAt: "2024-01-13",
-      updatedAt: "2024-01-13"
-    }
-  ]
+      updatedAt: "2024-01-13",
+    },
+  ];
 
   const filterFields = [
     {
-      type: 'select' as const,
-      label: '과목',
-      placeholder: '과목 선택',
+      type: "select" as const,
+      label: "과목",
+      placeholder: "과목 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: 'math', label: '수학' },
-        { value: 'korean', label: '국어' },
-        { value: 'english', label: '영어' },
-        { value: 'science', label: '과학' }
-      ]
+        { value: "all", label: "전체" },
+        { value: "math", label: "수학" },
+        { value: "korean", label: "국어" },
+        { value: "english", label: "영어" },
+        { value: "science", label: "과학" },
+      ],
     },
     {
-      type: 'select' as const,
-      label: '학년',
-      placeholder: '학년 선택',
+      type: "select" as const,
+      label: "학년",
+      placeholder: "학년 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: '1', label: '1학년' },
-        { value: '2', label: '2학년' },
-        { value: '3', label: '3학년' }
-      ]
+        { value: "all", label: "전체" },
+        { value: "1", label: "1학년" },
+        { value: "2", label: "2학년" },
+        { value: "3", label: "3학년" },
+      ],
     },
     {
-      type: 'select' as const,
-      label: '상태',
-      placeholder: '상태 선택',
+      type: "select" as const,
+      label: "상태",
+      placeholder: "상태 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: 'active', label: '활성' },
-        { value: 'inactive', label: '비활성' }
-      ]
-    }
-  ]
+        { value: "all", label: "전체" },
+        { value: "active", label: "활성" },
+        { value: "inactive", label: "비활성" },
+      ],
+    },
+  ];
 
   return (
     <PageContainer>
@@ -107,12 +113,12 @@ function TestPapersPage() {
           {
             label: "내보내기",
             icon: Download,
-            variant: "outline"
+            variant: "outline",
           },
           {
             label: "새 시험지",
-            icon: Plus
-          }
+            icon: Plus,
+          },
         ]}
       />
 
@@ -134,17 +140,22 @@ function TestPapersPage() {
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {testPapers.map((paper) => (
-              <div key={paper.id} className="border rounded-lg p-4 hover:bg-muted/50 transition-colors">
+            {testPapers.map(paper => (
+              <div
+                key={paper.id}
+                className="border rounded-lg p-4 hover:bg-muted/50 transition-colors"
+              >
                 <div className="flex items-start justify-between">
                   <div className="space-y-2 flex-1">
                     <div className="flex items-center gap-2">
                       <h3 className="font-medium text-lg">{paper.title}</h3>
-                      <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent ${
-                        paper.status === '활성' 
-                          ? 'bg-green-100 text-green-800 hover:bg-green-200' 
-                          : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-                      }`}>
+                      <span
+                        className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent ${
+                          paper.status === "활성"
+                            ? "bg-green-100 text-green-800 hover:bg-green-200"
+                            : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                        }`}
+                      >
                         {paper.status}
                       </span>
                     </div>
@@ -234,9 +245,7 @@ function TestPapersPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{testPapers.length}</div>
-            <p className="text-xs text-muted-foreground">
-              등록된 시험지 수
-            </p>
+            <p className="text-xs text-muted-foreground">등록된 시험지 수</p>
           </CardContent>
         </Card>
 
@@ -268,17 +277,17 @@ function TestPapersPage() {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">평균 시험 시간</CardTitle>
+            <CardTitle className="text-sm font-medium">
+              평균 시험 시간
+            </CardTitle>
             <Clock className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">103</div>
-            <p className="text-xs text-muted-foreground">
-              분
-            </p>
+            <p className="text-xs text-muted-foreground">분</p>
           </CardContent>
         </Card>
       </div>
     </PageContainer>
-  )
+  );
 }

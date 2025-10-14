@@ -1,52 +1,52 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Button } from "@workspace/ui/components/button"
-import { BookOpen, List, FilePlus, Edit } from "lucide-react"
-import { PageHeader } from "@/components/PageHeader"
-import { PageContainer } from "@/components/PageContainer"
-import { SearchFilter } from "@/components/SearchFilter"
+import { PageContainer } from "@/components/PageContainer";
+import { PageHeader } from "@/components/PageHeader";
+import { SearchFilter } from "@/components/SearchFilter";
+import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@workspace/ui/components/button";
+import { BookOpen, Edit, FilePlus, List } from "lucide-react";
 
-export const Route = createFileRoute('/database/textbooks/')({
+export const Route = createFileRoute("/database/textbooks/")({
   component: TextbooksPage,
-})
+});
 
 function TextbooksPage() {
   const textbooks = [
     {
-      id: 'tb001',
-      title: '수학 1',
-      description: '고등학교 1학년 수학 교과서',
-      grade: '1학년',
-      subject: '수학',
-      status: '활성',
-      created: '2024-01-15'
-    }
-  ]
+      id: "tb001",
+      title: "수학 1",
+      description: "고등학교 1학년 수학 교과서",
+      grade: "1학년",
+      subject: "수학",
+      status: "활성",
+      created: "2024-01-15",
+    },
+  ];
 
   const filterFields = [
     {
-      type: 'select' as const,
-      label: '과목',
-      placeholder: '과목 선택',
+      type: "select" as const,
+      label: "과목",
+      placeholder: "과목 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: 'math', label: '수학' },
-        { value: 'science', label: '과학' },
-        { value: 'korean', label: '국어' },
-        { value: 'english', label: '영어' }
-      ]
+        { value: "all", label: "전체" },
+        { value: "math", label: "수학" },
+        { value: "science", label: "과학" },
+        { value: "korean", label: "국어" },
+        { value: "english", label: "영어" },
+      ],
     },
     {
-      type: 'select' as const,
-      label: '학년',
-      placeholder: '학년 선택',
+      type: "select" as const,
+      label: "학년",
+      placeholder: "학년 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: '1', label: '1학년' },
-        { value: '2', label: '2학년' },
-        { value: '3', label: '3학년' }
-      ]
-    }
-  ]
+        { value: "all", label: "전체" },
+        { value: "1", label: "1학년" },
+        { value: "2", label: "2학년" },
+        { value: "3", label: "3학년" },
+      ],
+    },
+  ];
 
   return (
     <PageContainer>
@@ -57,12 +57,12 @@ function TextbooksPage() {
           {
             label: "목록",
             icon: List,
-            variant: "outline"
+            variant: "outline",
           },
           {
             label: "등록",
-            icon: FilePlus
-          }
+            icon: FilePlus,
+          },
         ]}
       />
 
@@ -74,7 +74,7 @@ function TextbooksPage() {
       />
 
       <div className="space-y-4">
-        {textbooks.map((textbook) => (
+        {textbooks.map(textbook => (
           <div key={textbook.id} className="border rounded-lg p-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -83,7 +83,9 @@ function TextbooksPage() {
                 </div>
                 <div>
                   <h3 className="font-medium">{textbook.title}</h3>
-                  <p className="text-sm text-muted-foreground">{textbook.description}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {textbook.description}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
@@ -102,5 +104,5 @@ function TextbooksPage() {
         ))}
       </div>
     </PageContainer>
-  )
+  );
 }

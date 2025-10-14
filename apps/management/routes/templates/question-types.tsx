@@ -1,22 +1,21 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
-import { Button } from "@workspace/ui/components/button"
-import { Label } from "@workspace/ui/components/label"
+import { PageContainer } from "@/components/PageContainer";
+import { PageHeader } from "@/components/PageHeader";
+import { SearchFilter } from "@/components/SearchFilter";
+import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@workspace/ui/components/button";
 import {
-  Plus, 
-  Edit, 
-  Trash2,
-  Eye,
-  Copy,
-  Settings,
-} from "lucide-react"
-import { PageHeader } from '@/components/PageHeader'
-import { PageContainer } from '@/components/PageContainer'
-import { SearchFilter } from '@/components/SearchFilter'
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card";
+import { Label } from "@workspace/ui/components/label";
+import { Copy, Edit, Eye, Plus, Settings, Trash2 } from "lucide-react";
 
-export const Route = createFileRoute('/templates/question-types')({
+export const Route = createFileRoute("/templates/question-types")({
   component: QuestionTypesPage,
-})
+});
 
 function QuestionTypesPage() {
   // 임시 데이터
@@ -27,15 +26,23 @@ function QuestionTypesPage() {
       description: "4개의 선택지 중 하나를 선택하는 문항 유형",
       fields: ["문제", "선택지1", "선택지2", "선택지3", "선택지4", "정답"],
       createdAt: "2024-01-15",
-      updatedAt: "2024-01-15"
+      updatedAt: "2024-01-15",
     },
     {
       id: 2,
       name: "객관식 (5지선다)",
       description: "5개의 선택지 중 하나를 선택하는 문항 유형",
-      fields: ["문제", "선택지1", "선택지2", "선택지3", "선택지4", "선택지5", "정답"],
+      fields: [
+        "문제",
+        "선택지1",
+        "선택지2",
+        "선택지3",
+        "선택지4",
+        "선택지5",
+        "정답",
+      ],
       createdAt: "2024-01-14",
-      updatedAt: "2024-01-14"
+      updatedAt: "2024-01-14",
     },
     {
       id: 3,
@@ -43,7 +50,7 @@ function QuestionTypesPage() {
       description: "직접 답을 작성하는 문항 유형",
       fields: ["문제", "답안", "채점기준"],
       createdAt: "2024-01-13",
-      updatedAt: "2024-01-13"
+      updatedAt: "2024-01-13",
     },
     {
       id: 4,
@@ -51,23 +58,23 @@ function QuestionTypesPage() {
       description: "짧은 답을 입력하는 문항 유형",
       fields: ["문제", "정답"],
       createdAt: "2024-01-12",
-      updatedAt: "2024-01-12"
-    }
-  ]
+      updatedAt: "2024-01-12",
+    },
+  ];
 
   const filterFields = [
     {
-      type: 'select' as const,
-      label: '문항 유형',
-      placeholder: '문항 유형 선택',
+      type: "select" as const,
+      label: "문항 유형",
+      placeholder: "문항 유형 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: 'multiple', label: '객관식' },
-        { value: 'subjective', label: '서술형' },
-        { value: 'short', label: '단답형' }
-      ]
-    }
-  ]
+        { value: "all", label: "전체" },
+        { value: "multiple", label: "객관식" },
+        { value: "subjective", label: "서술형" },
+        { value: "short", label: "단답형" },
+      ],
+    },
+  ];
 
   return (
     <PageContainer>
@@ -77,8 +84,8 @@ function QuestionTypesPage() {
         actions={[
           {
             label: "새 문항유형",
-            icon: Plus
-          }
+            icon: Plus,
+          },
         ]}
       />
 
@@ -89,7 +96,7 @@ function QuestionTypesPage() {
 
       {/* 문항유형 목록 */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {questionTypes.map((type) => (
+        {questionTypes.map(type => (
           <Card key={type.id} className="hover:shadow-md transition-shadow">
             <CardHeader>
               <div className="flex items-start justify-between">
@@ -151,9 +158,7 @@ function QuestionTypesPage() {
       <Card>
         <CardHeader>
           <CardTitle>문항유형 통계</CardTitle>
-          <CardDescription>
-            현재 등록된 문항유형 현황
-          </CardDescription>
+          <CardDescription>현재 등록된 문항유형 현황</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4 md:grid-cols-4">
@@ -177,5 +182,5 @@ function QuestionTypesPage() {
         </CardContent>
       </Card>
     </PageContainer>
-  )
+  );
 }

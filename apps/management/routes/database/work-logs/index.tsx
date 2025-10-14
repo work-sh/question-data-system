@@ -1,26 +1,21 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
-import { Button } from "@workspace/ui/components/button"
-import { Input } from "@workspace/ui/components/input"
-import { Label } from "@workspace/ui/components/label"
-import { 
-  History, 
-  Search, 
-  Filter, 
-  Download, 
-  Calendar,
-  User,
-  Clock,
-  FileText,
-  Settings,
-  Database
-} from "lucide-react"
-import { PageHeader } from '@/components/PageHeader'
-import { PageContainer } from '@/components/PageContainer'
+import { PageContainer } from "@/components/PageContainer";
+import { PageHeader } from "@/components/PageHeader";
+import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@workspace/ui/components/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card";
+import { Input } from "@workspace/ui/components/input";
+import { Label } from "@workspace/ui/components/label";
+import { Clock, FileText, History, Search, Settings, User } from "lucide-react";
 
-export const Route = createFileRoute('/database/work-logs/')({
+export const Route = createFileRoute("/database/work-logs/")({
   component: WorkLogsPage,
-})
+});
 
 function WorkLogsPage() {
   // 임시 데이터
@@ -33,17 +28,17 @@ function WorkLogsPage() {
       target: "수학 문항 #1234",
       timestamp: "2024-01-15 14:30:25",
       details: "새로운 수학 문제를 생성했습니다.",
-      status: "완료"
+      status: "완료",
     },
     {
       id: 2,
-      userId: "user002", 
+      userId: "user002",
       userName: "이영희",
       action: "평가세트 수정",
       target: "중간고사 평가세트",
       timestamp: "2024-01-15 13:45:12",
       details: "평가세트의 문제 순서를 변경했습니다.",
-      status: "완료"
+      status: "완료",
     },
     {
       id: 3,
@@ -53,7 +48,7 @@ function WorkLogsPage() {
       target: "전체 데이터베이스",
       timestamp: "2024-01-15 12:00:00",
       details: "일일 자동 백업이 실행되었습니다.",
-      status: "완료"
+      status: "완료",
     },
     {
       id: 4,
@@ -63,7 +58,7 @@ function WorkLogsPage() {
       target: "user004",
       timestamp: "2024-01-15 11:20:45",
       details: "사용자 권한을 관리자로 변경했습니다.",
-      status: "완료"
+      status: "완료",
     },
     {
       id: 5,
@@ -73,9 +68,9 @@ function WorkLogsPage() {
       target: "구 템플릿 #567",
       timestamp: "2024-01-15 10:15:30",
       details: "사용하지 않는 템플릿을 삭제했습니다.",
-      status: "완료"
-    }
-  ]
+      status: "완료",
+    },
+  ];
 
   return (
     <PageContainer>
@@ -115,19 +110,11 @@ function WorkLogsPage() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="date-from">시작 날짜</Label>
-              <Input
-                id="date-from"
-                type="date"
-                className="w-full"
-              />
+              <Input id="date-from" type="date" className="w-full" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="date-to">종료 날짜</Label>
-              <Input
-                id="date-to"
-                type="date"
-                className="w-full"
-              />
+              <Input id="date-to" type="date" className="w-full" />
             </div>
           </div>
           <div className="flex justify-end mt-4">
@@ -152,8 +139,11 @@ function WorkLogsPage() {
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {workLogs.map((log) => (
-              <div key={log.id} className="border rounded-lg p-4 hover:bg-muted/50 transition-colors">
+            {workLogs.map(log => (
+              <div
+                key={log.id}
+                className="border rounded-lg p-4 hover:bg-muted/50 transition-colors"
+              >
                 <div className="flex items-start justify-between">
                   <div className="space-y-2 flex-1">
                     <div className="flex items-center gap-2">
@@ -165,7 +155,9 @@ function WorkLogsPage() {
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <User className="h-3 w-3" />
-                        <span>{log.userName} ({log.userId})</span>
+                        <span>
+                          {log.userName} ({log.userId})
+                        </span>
                       </div>
                       <div className="flex items-center gap-1">
                         <Clock className="h-3 w-3" />
@@ -226,9 +218,7 @@ function WorkLogsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">45</div>
-            <p className="text-xs text-muted-foreground">
-              +12% 어제 대비
-            </p>
+            <p className="text-xs text-muted-foreground">+12% 어제 대비</p>
           </CardContent>
         </Card>
 
@@ -239,9 +229,7 @@ function WorkLogsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">8</div>
-            <p className="text-xs text-muted-foreground">
-              오늘 활동한 사용자
-            </p>
+            <p className="text-xs text-muted-foreground">오늘 활동한 사용자</p>
           </CardContent>
         </Card>
 
@@ -252,9 +240,7 @@ function WorkLogsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">23</div>
-            <p className="text-xs text-muted-foreground">
-              오늘 생성된 문항
-            </p>
+            <p className="text-xs text-muted-foreground">오늘 생성된 문항</p>
           </CardContent>
         </Card>
 
@@ -272,5 +258,5 @@ function WorkLogsPage() {
         </Card>
       </div>
     </PageContainer>
-  )
+  );
 }

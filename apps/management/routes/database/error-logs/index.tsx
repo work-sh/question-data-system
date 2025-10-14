@@ -1,40 +1,45 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
-import { Button } from "@workspace/ui/components/button"
-import { AlertTriangle, Search, Filter, Download, Calendar, RefreshCw } from "lucide-react"
-import { PageHeader } from "@/components/PageHeader"
-import { PageContainer } from "@/components/PageContainer"
-import { SearchFilter } from "@/components/SearchFilter"
+import { PageContainer } from "@/components/PageContainer";
+import { PageHeader } from "@/components/PageHeader";
+import { SearchFilter } from "@/components/SearchFilter";
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card";
+import { AlertTriangle, Calendar, Download, RefreshCw } from "lucide-react";
 
-export const Route = createFileRoute('/database/error-logs/')({
+export const Route = createFileRoute("/database/error-logs/")({
   component: ErrorLogsPage,
-})
+});
 
 function ErrorLogsPage() {
   const filterFields = [
     {
-      type: 'select' as const,
-      label: '오류 레벨',
-      placeholder: '오류 레벨 선택',
+      type: "select" as const,
+      label: "오류 레벨",
+      placeholder: "오류 레벨 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: 'error', label: 'ERROR' },
-        { value: 'warning', label: 'WARNING' },
-        { value: 'info', label: 'INFO' }
-      ]
+        { value: "all", label: "전체" },
+        { value: "error", label: "ERROR" },
+        { value: "warning", label: "WARNING" },
+        { value: "info", label: "INFO" },
+      ],
     },
     {
-      type: 'select' as const,
-      label: '기간',
-      placeholder: '기간 선택',
+      type: "select" as const,
+      label: "기간",
+      placeholder: "기간 선택",
       options: [
-        { value: 'today', label: '오늘' },
-        { value: 'week', label: '이번 주' },
-        { value: 'month', label: '이번 달' },
-        { value: 'custom', label: '사용자 정의' }
-      ]
-    }
-  ]
+        { value: "today", label: "오늘" },
+        { value: "week", label: "이번 주" },
+        { value: "month", label: "이번 달" },
+        { value: "custom", label: "사용자 정의" },
+      ],
+    },
+  ];
 
   return (
     <PageContainer>
@@ -45,17 +50,17 @@ function ErrorLogsPage() {
           {
             label: "기간 설정",
             icon: Calendar,
-            variant: "outline"
+            variant: "outline",
           },
           {
             label: "새로고침",
             icon: RefreshCw,
-            variant: "outline"
+            variant: "outline",
           },
           {
             label: "로그 다운로드",
-            icon: Download
-          }
+            icon: Download,
+          },
         ]}
       />
 
@@ -81,7 +86,9 @@ function ErrorLogsPage() {
                   </div>
                   <div>
                     <h3 className="font-medium">Database Connection Error</h3>
-                    <p className="text-sm text-muted-foreground">2024-01-15 14:30:25 - 데이터베이스 연결 실패</p>
+                    <p className="text-sm text-muted-foreground">
+                      2024-01-15 14:30:25 - 데이터베이스 연결 실패
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -95,5 +102,5 @@ function ErrorLogsPage() {
         </CardContent>
       </Card>
     </PageContainer>
-  )
+  );
 }

@@ -1,28 +1,34 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
-import { Button } from "@workspace/ui/components/button"
-import { Code, Search, Filter, List, FilePlus } from "lucide-react"
-import { PageHeader } from "@/components/PageHeader"
-import { PageContainer } from "@/components/PageContainer"
-import { SearchFilter } from "@/components/SearchFilter"
+import { PageContainer } from "@/components/PageContainer";
+import { PageHeader } from "@/components/PageHeader";
+import { SearchFilter } from "@/components/SearchFilter";
+import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@workspace/ui/components/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card";
+import { Code, FilePlus, List } from "lucide-react";
 
-export const Route = createFileRoute('/database/codes/')({
+export const Route = createFileRoute("/database/codes/")({
   component: CodesPage,
-})
+});
 
 function CodesPage() {
   const filterFields = [
     {
-      type: 'select' as const,
-      label: '상태',
-      placeholder: '상태 선택',
+      type: "select" as const,
+      label: "상태",
+      placeholder: "상태 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: 'active', label: '활성' },
-        { value: 'inactive', label: '비활성' }
-      ]
-    }
-  ]
+        { value: "all", label: "전체" },
+        { value: "active", label: "활성" },
+        { value: "inactive", label: "비활성" },
+      ],
+    },
+  ];
 
   return (
     <PageContainer>
@@ -33,12 +39,12 @@ function CodesPage() {
           {
             label: "목록",
             icon: List,
-            variant: "outline"
+            variant: "outline",
           },
           {
             label: "등록",
-            icon: FilePlus
-          }
+            icon: FilePlus,
+          },
         ]}
       />
 
@@ -50,9 +56,7 @@ function CodesPage() {
       <Card>
         <CardHeader>
           <CardTitle>코드 목록</CardTitle>
-          <CardDescription>
-            등록된 모든 코드 목록입니다
-          </CardDescription>
+          <CardDescription>등록된 모든 코드 목록입니다</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -64,14 +68,18 @@ function CodesPage() {
                   </div>
                   <div>
                     <h3 className="font-medium">MATH001</h3>
-                    <p className="text-sm text-muted-foreground">수학 기본 코드</p>
+                    <p className="text-sm text-muted-foreground">
+                      수학 기본 코드
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
                     활성
                   </span>
-                  <Button variant="outline" size="sm">편집</Button>
+                  <Button variant="outline" size="sm">
+                    편집
+                  </Button>
                 </div>
               </div>
             </div>
@@ -79,5 +87,5 @@ function CodesPage() {
         </CardContent>
       </Card>
     </PageContainer>
-  )
+  );
 }

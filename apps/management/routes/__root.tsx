@@ -1,16 +1,16 @@
-import { createRootRoute, Outlet, useLocation } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/router-devtools'
-import "@workspace/ui/styles/globals.css"
-import { AppLayout } from "@/components/AppLayout"
-import { ThemeProvider as NextThemesProvider } from "next-themes"
-import { QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { queryClient } from '@/lib/query-client'
+import { AppLayout } from "@/components/AppLayout";
+import { queryClient } from "@/lib/query-client";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { createRootRoute, Outlet, useLocation } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import "@workspace/ui/styles/globals.css";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 function RootComponent() {
-  const location = useLocation()
-  const isLoginPage = location.pathname.includes('/login')
-  
+  const location = useLocation();
+  const isLoginPage = location.pathname.includes("/login");
+
   return (
     <QueryClientProvider client={queryClient}>
       <NextThemesProvider
@@ -31,9 +31,9 @@ function RootComponent() {
         <ReactQueryDevtools initialIsOpen={false} />
       </NextThemesProvider>
     </QueryClientProvider>
-  )
+  );
 }
 
 export const Route = createRootRoute({
   component: RootComponent,
-})
+});

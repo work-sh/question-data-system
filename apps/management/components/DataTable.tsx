@@ -1,6 +1,5 @@
-"use client"
+"use client";
 
-import * as React from "react"
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -12,10 +11,11 @@ import {
   SortingState,
   useReactTable,
   VisibilityState,
-} from "@tanstack/react-table"
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
+} from "@tanstack/react-table";
+import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
+import * as React from "react";
 
-import { Button } from "@workspace/ui/components/button"
+import { Button } from "@workspace/ui/components/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -23,8 +23,8 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@workspace/ui/components/dropdown-menu"
-import { Input } from "@workspace/ui/components/input"
+} from "@workspace/ui/components/dropdown-menu";
+import { Input } from "@workspace/ui/components/input";
 import {
   Table,
   TableBody,
@@ -32,17 +32,17 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@workspace/ui/components/table"
+} from "@workspace/ui/components/table";
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
-  searchKey?: string
-  searchPlaceholder?: string
-  showColumnToggle?: boolean
-  showPagination?: boolean
-  pageSize?: number
-  className?: string
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
+  searchKey?: string;
+  searchPlaceholder?: string;
+  showColumnToggle?: boolean;
+  showPagination?: boolean;
+  pageSize?: number;
+  className?: string;
 }
 
 export function DataTable<TData, TValue>({
@@ -55,10 +55,13 @@ export function DataTable<TData, TValue>({
   pageSize = 10,
   className,
 }: DataTableProps<TData, TValue>) {
-  const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
-  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
-  const [rowSelection, setRowSelection] = React.useState({})
+  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    []
+  );
+  const [columnVisibility, setColumnVisibility] =
+    React.useState<VisibilityState>({});
+  const [rowSelection, setRowSelection] = React.useState({});
 
   const table = useReactTable({
     data,
@@ -82,17 +85,19 @@ export function DataTable<TData, TValue>({
         pageSize,
       },
     },
-  })
+  });
 
   return (
-    <div className={`w-full ${className || ''}`}>
+    <div className={`w-full ${className || ""}`}>
       {/* 검색 및 컬럼 토글 */}
       <div className="flex items-center py-4">
         {searchKey && (
           <Input
             placeholder={searchPlaceholder}
-            value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ""}
-            onChange={(event) =>
+            value={
+              (table.getColumn(searchKey)?.getFilterValue() as string) ?? ""
+            }
+            onChange={event =>
               table.getColumn(searchKey)?.setFilterValue(event.target.value)
             }
             className="max-w-sm"
@@ -108,20 +113,20 @@ export function DataTable<TData, TValue>({
             <DropdownMenuContent align="end">
               {table
                 .getAllColumns()
-                .filter((column) => column.getCanHide())
-                .map((column) => {
+                .filter(column => column.getCanHide())
+                .map(column => {
                   return (
                     <DropdownMenuCheckboxItem
                       key={column.id}
                       className="capitalize"
                       checked={column.getIsVisible()}
-                      onCheckedChange={(value) =>
+                      onCheckedChange={value =>
                         column.toggleVisibility(!!value)
                       }
                     >
                       {column.id}
                     </DropdownMenuCheckboxItem>
-                  )
+                  );
                 })}
             </DropdownMenuContent>
           </DropdownMenu>
@@ -132,9 +137,9 @@ export function DataTable<TData, TValue>({
       <div className="overflow-hidden rounded-md border">
         <Table>
           <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
+            {table.getHeaderGroups().map(headerGroup => (
               <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
+                {headerGroup.headers.map(header => {
                   return (
                     <TableHead key={header.id}>
                       {header.isPlaceholder
@@ -144,19 +149,19 @@ export function DataTable<TData, TValue>({
                             header.getContext()
                           )}
                     </TableHead>
-                  )
+                  );
                 })}
               </TableRow>
             ))}
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
+              table.getRowModel().rows.map(row => (
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
-                  {row.getVisibleCells().map((cell) => (
+                  {row.getVisibleCells().map(cell => (
                     <TableCell key={cell.id}>
                       {flexRender(
                         cell.column.columnDef.cell,
@@ -184,7 +189,8 @@ export function DataTable<TData, TValue>({
       {showPagination && (
         <div className="flex items-center justify-end space-x-2 py-4">
           <div className="flex-1 text-sm text-muted-foreground">
-            {table.getFilteredSelectedRowModel().rows.length}개 선택됨 (총 {table.getFilteredRowModel().rows.length}개)
+            {table.getFilteredSelectedRowModel().rows.length}개 선택됨 (총{" "}
+            {table.getFilteredRowModel().rows.length}개)
           </div>
           <div className="space-x-2">
             <Button
@@ -207,11 +213,17 @@ export function DataTable<TData, TValue>({
         </div>
       )}
     </div>
-  )
+  );
 }
 
 // 정렬 가능한 헤더 버튼 컴포넌트
-export function SortableHeader({ column, children }: { column: any; children: React.ReactNode }) {
+export function SortableHeader({
+  column,
+  children,
+}: {
+  column: any;
+  children: React.ReactNode;
+}) {
   return (
     <Button
       variant="ghost"
@@ -221,11 +233,15 @@ export function SortableHeader({ column, children }: { column: any; children: Re
       {children}
       <ArrowUpDown className="ml-2 h-4 w-4" />
     </Button>
-  )
+  );
 }
 
 // 액션 드롭다운 컴포넌트
-export function ActionsDropdown({ actions }: { actions: Array<{ label: string; onClick: () => void; separator?: boolean }> }) {
+export function ActionsDropdown({
+  actions,
+}: {
+  actions: Array<{ label: string; onClick: () => void; separator?: boolean }>;
+}) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -245,5 +261,5 @@ export function ActionsDropdown({ actions }: { actions: Array<{ label: string; o
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }

@@ -1,40 +1,45 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
-import { Button } from "@workspace/ui/components/button"
-import { History, Search, Filter, Download, Calendar } from "lucide-react"
-import { PageHeader } from "@/components/PageHeader"
-import { PageContainer } from "@/components/PageContainer"
-import { SearchFilter } from "@/components/SearchFilter"
+import { PageContainer } from "@/components/PageContainer";
+import { PageHeader } from "@/components/PageHeader";
+import { SearchFilter } from "@/components/SearchFilter";
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card";
+import { Calendar, Download, History } from "lucide-react";
 
-export const Route = createFileRoute('/database/user-activity/')({
+export const Route = createFileRoute("/database/user-activity/")({
   component: UserActivityPage,
-})
+});
 
 function UserActivityPage() {
   const filterFields = [
     {
-      type: 'select' as const,
-      label: '작업 유형',
-      placeholder: '작업 유형 선택',
+      type: "select" as const,
+      label: "작업 유형",
+      placeholder: "작업 유형 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: 'create', label: '생성' },
-        { value: 'update', label: '수정' },
-        { value: 'delete', label: '삭제' }
-      ]
+        { value: "all", label: "전체" },
+        { value: "create", label: "생성" },
+        { value: "update", label: "수정" },
+        { value: "delete", label: "삭제" },
+      ],
     },
     {
-      type: 'select' as const,
-      label: '기간',
-      placeholder: '기간 선택',
+      type: "select" as const,
+      label: "기간",
+      placeholder: "기간 선택",
       options: [
-        { value: 'today', label: '오늘' },
-        { value: 'week', label: '이번 주' },
-        { value: 'month', label: '이번 달' },
-        { value: 'custom', label: '사용자 정의' }
-      ]
-    }
-  ]
+        { value: "today", label: "오늘" },
+        { value: "week", label: "이번 주" },
+        { value: "month", label: "이번 달" },
+        { value: "custom", label: "사용자 정의" },
+      ],
+    },
+  ];
 
   return (
     <PageContainer>
@@ -45,12 +50,12 @@ function UserActivityPage() {
           {
             label: "기간 설정",
             icon: Calendar,
-            variant: "outline"
+            variant: "outline",
           },
           {
             label: "내역 다운로드",
-            icon: Download
-          }
+            icon: Download,
+          },
         ]}
       />
 
@@ -62,9 +67,7 @@ function UserActivityPage() {
       <Card>
         <CardHeader>
           <CardTitle>작업 내역</CardTitle>
-          <CardDescription>
-            사용자별 작업 내역 목록입니다
-          </CardDescription>
+          <CardDescription>사용자별 작업 내역 목록입니다</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -76,7 +79,9 @@ function UserActivityPage() {
                   </div>
                   <div>
                     <h3 className="font-medium">관리자</h3>
-                    <p className="text-sm text-muted-foreground">문항 생성 - 2024-01-15 14:30</p>
+                    <p className="text-sm text-muted-foreground">
+                      문항 생성 - 2024-01-15 14:30
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -90,5 +95,5 @@ function UserActivityPage() {
         </CardContent>
       </Card>
     </PageContainer>
-  )
+  );
 }

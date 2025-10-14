@@ -1,28 +1,34 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
-import { Button } from "@workspace/ui/components/button"
-import { Tag, Search, Filter, List, FilePlus } from "lucide-react"
-import { PageHeader } from "@/components/PageHeader"
-import { PageContainer } from "@/components/PageContainer"
-import { SearchFilter } from "@/components/SearchFilter"
+import { PageContainer } from "@/components/PageContainer";
+import { PageHeader } from "@/components/PageHeader";
+import { SearchFilter } from "@/components/SearchFilter";
+import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@workspace/ui/components/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card";
+import { FilePlus, Filter, List, Search, Tag } from "lucide-react";
 
-export const Route = createFileRoute('/database/domains/')({
+export const Route = createFileRoute("/database/domains/")({
   component: DomainsPage,
-})
+});
 
 function DomainsPage() {
   const filterFields = [
     {
-      type: 'select' as const,
-      label: '상태',
-      placeholder: '상태 선택',
+      type: "select" as const,
+      label: "상태",
+      placeholder: "상태 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: 'active', label: '활성' },
-        { value: 'inactive', label: '비활성' }
-      ]
-    }
-  ]
+        { value: "all", label: "전체" },
+        { value: "active", label: "활성" },
+        { value: "inactive", label: "비활성" },
+      ],
+    },
+  ];
 
   return (
     <PageContainer>
@@ -33,12 +39,12 @@ function DomainsPage() {
           {
             label: "목록",
             icon: List,
-            variant: "outline"
+            variant: "outline",
           },
           {
             label: "등록",
-            icon: FilePlus
-          }
+            icon: FilePlus,
+          },
         ]}
       />
 
@@ -47,7 +53,7 @@ function DomainsPage() {
         description="도메인을 검색하고 필터링합니다"
         searchPlaceholder="도메인 검색..."
         filterFields={filterFields}
-      />  
+      />
 
       <div className="flex items-center justify-end">
         <div className="flex items-center gap-2">
@@ -92,9 +98,7 @@ function DomainsPage() {
       <Card>
         <CardHeader>
           <CardTitle>도메인 목록</CardTitle>
-          <CardDescription>
-            등록된 모든 도메인 목록입니다
-          </CardDescription>
+          <CardDescription>등록된 모든 도메인 목록입니다</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -106,14 +110,18 @@ function DomainsPage() {
                   </div>
                   <div>
                     <h3 className="font-medium">수학</h3>
-                    <p className="text-sm text-muted-foreground">수학 관련 도메인</p>
+                    <p className="text-sm text-muted-foreground">
+                      수학 관련 도메인
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
                     활성
                   </span>
-                  <Button variant="outline" size="sm">편집</Button>
+                  <Button variant="outline" size="sm">
+                    편집
+                  </Button>
                 </div>
               </div>
             </div>
@@ -121,5 +129,5 @@ function DomainsPage() {
         </CardContent>
       </Card>
     </PageContainer>
-  )
+  );
 }

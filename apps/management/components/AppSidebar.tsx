@@ -1,26 +1,26 @@
-"use client"
+"use client";
 
-import * as React from "react"
 import {
-  Home,
-  Users,
-  BookOpen,
-  FileText,
-  Database,
   BarChart3,
+  BookOpen,
+  Database,
+  FileText,
+  Home,
   Settings,
-} from "lucide-react"
+  Users,
+} from "lucide-react";
+import * as React from "react";
 
-import { NavUser } from "@/components/NavUser"
-import { TeamSwitcher } from "@/components/TeamSwitcher"
+import { NavUser } from "@/components/NavUser";
+import { TeamSwitcher } from "@/components/TeamSwitcher";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@workspace/ui/components/sidebar"
-import { NavMain } from "./NavMain"
+} from "@workspace/ui/components/sidebar";
+import { NavMain } from "./NavMain";
 
 const data = {
   user: {
@@ -122,7 +122,7 @@ const data = {
       items: [
         {
           title: "변환통계",
-          url: "/analytic/conversion"
+          url: "/analytic/conversion",
         },
         {
           title: "보유통계",
@@ -135,7 +135,7 @@ const data = {
       ],
     },
   ],
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -151,5 +151,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }

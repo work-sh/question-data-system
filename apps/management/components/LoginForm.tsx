@@ -1,38 +1,38 @@
-import { useState } from "react"
-import { cn } from "@workspace/ui/lib/utils"
-import { Button } from "@workspace/ui/components/button"
+import { useAuthStore } from "@/stores";
+import { Button } from "@workspace/ui/components/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@workspace/ui/components/card"
+} from "@workspace/ui/components/card";
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@workspace/ui/components/field"
-import { Input } from "@workspace/ui/components/input"
-import { useAuthStore } from "@/stores"
+} from "@workspace/ui/components/field";
+import { Input } from "@workspace/ui/components/input";
+import { cn } from "@workspace/ui/lib/utils";
+import { useState } from "react";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const { login, isLoading } = useAuthStore()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login, isLoading } = useAuthStore();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      await login(email, password)
+      await login(email, password);
     } catch (error) {
-      console.error("Login failed:", error)
+      console.error("Login failed:", error);
     }
-  }
+  };
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -53,7 +53,7 @@ export function LoginForm({
                   type="email"
                   placeholder="m@example.com"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={e => setEmail(e.target.value)}
                   required
                 />
               </Field>
@@ -67,12 +67,12 @@ export function LoginForm({
                     Forgot your password?
                   </a>
                 </div>
-                <Input 
-                  id="password" 
-                  type="password" 
+                <Input
+                  id="password"
+                  type="password"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required 
+                  onChange={e => setPassword(e.target.value)}
+                  required
                 />
               </Field>
               <Field>
@@ -91,5 +91,5 @@ export function LoginForm({
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

@@ -1,24 +1,29 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
-import { Button } from "@workspace/ui/components/button"
-import { 
-  TrendingUp, 
-  TrendingDown,
-  FileText,
-  Download,
-  Calendar,
-  ArrowUpRight,
+import { PageContainer } from "@/components/PageContainer";
+import { PageHeader } from "@/components/PageHeader";
+import { SearchFilter } from "@/components/SearchFilter";
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card";
+import {
   ArrowDownRight,
-  Target,
+  ArrowUpRight,
+  Calendar,
   CheckCircle,
-} from "lucide-react"
-import { PageHeader } from '@/components/PageHeader'
-import { SearchFilter } from '@/components/SearchFilter'
-import { PageContainer } from '@/components/PageContainer'
+  Download,
+  FileText,
+  Target,
+  TrendingDown,
+  TrendingUp,
+} from "lucide-react";
 
-export const Route = createFileRoute('/analytic/conversion')({
+export const Route = createFileRoute("/analytic/conversion")({
   component: ConversionStatsPage,
-})
+});
 
 function ConversionStatsPage() {
   // 임시 데이터
@@ -29,7 +34,7 @@ function ConversionStatsPage() {
       successfulConversions: 1180,
       failedConversions: 70,
       successRate: 94.4,
-      change: 12.5
+      change: 12.5,
     },
     {
       period: "지난 달",
@@ -37,7 +42,7 @@ function ConversionStatsPage() {
       successfulConversions: 1020,
       failedConversions: 90,
       successRate: 91.9,
-      change: -5.2
+      change: -5.2,
     },
     {
       period: "3개월 전",
@@ -45,61 +50,61 @@ function ConversionStatsPage() {
       successfulConversions: 1080,
       failedConversions: 90,
       successRate: 92.3,
-      change: 8.1
-    }
-  ]
+      change: 8.1,
+    },
+  ];
 
   const conversionTypes = [
     {
       type: "PDF to XML",
       count: 450,
       successRate: 96.2,
-      change: 15.3
+      change: 15.3,
     },
     {
       type: "Word to XML",
       count: 380,
       successRate: 94.7,
-      change: 8.9
+      change: 8.9,
     },
     {
       type: "Excel to XML",
       count: 220,
       successRate: 92.1,
-      change: -2.1
+      change: -2.1,
     },
     {
       type: "Image to Text",
       count: 200,
       successRate: 89.5,
-      change: 22.4
-    }
-  ]
+      change: 22.4,
+    },
+  ];
 
   const filterFields = [
     {
-      type: 'select' as const,
-      label: '변환 유형',
-      placeholder: '변환 유형 선택',
+      type: "select" as const,
+      label: "변환 유형",
+      placeholder: "변환 유형 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: 'word', label: 'Word to XML' },
-        { value: 'excel', label: 'Excel to XML' },
-        { value: 'image', label: 'Image to Text' }
-      ]
+        { value: "all", label: "전체" },
+        { value: "word", label: "Word to XML" },
+        { value: "excel", label: "Excel to XML" },
+        { value: "image", label: "Image to Text" },
+      ],
     },
     {
-      type: 'select' as const,
-      label: '기간',
-      placeholder: '기간 선택',
+      type: "select" as const,
+      label: "기간",
+      placeholder: "기간 선택",
       options: [
-        { value: 'today', label: '오늘' },
-        { value: 'week', label: '이번 주' },
-        { value: 'month', label: '이번 달' },
-        { value: 'custom', label: '사용자 정의' }
-      ]
-    }
-  ]
+        { value: "today", label: "오늘" },
+        { value: "week", label: "이번 주" },
+        { value: "month", label: "이번 달" },
+        { value: "custom", label: "사용자 정의" },
+      ],
+    },
+  ];
 
   return (
     <PageContainer>
@@ -110,12 +115,12 @@ function ConversionStatsPage() {
           {
             label: "기간 설정",
             icon: Calendar,
-            variant: "outline"
+            variant: "outline",
           },
           {
             label: "리포트 다운로드",
-            icon: Download
-          }
+            icon: Download,
+          },
         ]}
       />
 
@@ -156,7 +161,9 @@ function ConversionStatsPage() {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">평균 처리 시간</CardTitle>
+            <CardTitle className="text-sm font-medium">
+              평균 처리 시간
+            </CardTitle>
             <Target className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
@@ -187,9 +194,7 @@ function ConversionStatsPage() {
       <Card>
         <CardHeader>
           <CardTitle>기간별 변환 통계</CardTitle>
-          <CardDescription>
-            최근 3개월간의 변환 작업 현황
-          </CardDescription>
+          <CardDescription>최근 3개월간의 변환 작업 현황</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -198,27 +203,36 @@ function ConversionStatsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="font-medium text-lg">{stat.period}</h3>
                   <div className="flex items-center gap-2">
-                    <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent ${
-                      stat.change > 0 
-                        ? 'bg-green-100 text-green-800 hover:bg-green-200' 
-                        : 'bg-red-100 text-red-800 hover:bg-red-200'
-                    }`}>
-                      {stat.change > 0 ? '+' : ''}{stat.change}%
+                    <span
+                      className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent ${
+                        stat.change > 0
+                          ? "bg-green-100 text-green-800 hover:bg-green-200"
+                          : "bg-red-100 text-red-800 hover:bg-red-200"
+                      }`}
+                    >
+                      {stat.change > 0 ? "+" : ""}
+                      {stat.change}%
                     </span>
                   </div>
                 </div>
                 <div className="grid gap-4 md:grid-cols-4">
                   <div>
                     <p className="text-sm text-muted-foreground">총 변환</p>
-                    <p className="text-2xl font-bold">{stat.totalConversions.toLocaleString()}</p>
+                    <p className="text-2xl font-bold">
+                      {stat.totalConversions.toLocaleString()}
+                    </p>
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">성공</p>
-                    <p className="text-2xl font-bold text-green-600">{stat.successfulConversions.toLocaleString()}</p>
+                    <p className="text-2xl font-bold text-green-600">
+                      {stat.successfulConversions.toLocaleString()}
+                    </p>
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">실패</p>
-                    <p className="text-2xl font-bold text-red-600">{stat.failedConversions.toLocaleString()}</p>
+                    <p className="text-2xl font-bold text-red-600">
+                      {stat.failedConversions.toLocaleString()}
+                    </p>
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">성공률</p>
@@ -235,14 +249,15 @@ function ConversionStatsPage() {
       <Card>
         <CardHeader>
           <CardTitle>변환 유형별 통계</CardTitle>
-          <CardDescription>
-            파일 형식별 변환 성능 현황
-          </CardDescription>
+          <CardDescription>파일 형식별 변환 성능 현황</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             {conversionTypes.map((type, index) => (
-              <div key={index} className="border rounded-lg p-4 hover:bg-muted/50 transition-colors">
+              <div
+                key={index}
+                className="border rounded-lg p-4 hover:bg-muted/50 transition-colors"
+              >
                 <div className="flex items-center justify-between">
                   <div className="space-y-1">
                     <h3 className="font-medium">{type.type}</h3>
@@ -252,12 +267,15 @@ function ConversionStatsPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent ${
-                      type.change > 0 
-                        ? 'bg-green-100 text-green-800 hover:bg-green-200' 
-                        : 'bg-red-100 text-red-800 hover:bg-red-200'
-                    }`}>
-                      {type.change > 0 ? '+' : ''}{type.change}%
+                    <span
+                      className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent ${
+                        type.change > 0
+                          ? "bg-green-100 text-green-800 hover:bg-green-200"
+                          : "bg-red-100 text-red-800 hover:bg-red-200"
+                      }`}
+                    >
+                      {type.change > 0 ? "+" : ""}
+                      {type.change}%
                     </span>
                   </div>
                 </div>
@@ -271,20 +289,20 @@ function ConversionStatsPage() {
       <Card>
         <CardHeader>
           <CardTitle>변환 성능 트렌드</CardTitle>
-          <CardDescription>
-            최근 30일간의 변환 성능 변화 추이
-          </CardDescription>
+          <CardDescription>최근 30일간의 변환 성능 변화 추이</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="h-64 flex items-center justify-center border-2 border-dashed border-muted-foreground/25 rounded-lg">
             <div className="text-center">
               <TrendingUp className="h-12 w-12 mx-auto text-muted-foreground mb-2" />
               <p className="text-muted-foreground">차트 영역</p>
-              <p className="text-sm text-muted-foreground">실제 구현 시 Chart.js 또는 Recharts 등을 사용</p>
+              <p className="text-sm text-muted-foreground">
+                실제 구현 시 Chart.js 또는 Recharts 등을 사용
+              </p>
             </div>
           </div>
         </CardContent>
       </Card>
     </PageContainer>
-  )
+  );
 }

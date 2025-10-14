@@ -1,47 +1,47 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Button } from "@workspace/ui/components/button" 
-import { Users, Plus, Edit } from "lucide-react"
-import { PageHeader } from '@/components/PageHeader'
-import { PageContainer } from '@/components/PageContainer'
-import { SearchFilter } from '@/components/SearchFilter'
+import { PageContainer } from "@/components/PageContainer";
+import { PageHeader } from "@/components/PageHeader";
+import { SearchFilter } from "@/components/SearchFilter";
+import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@workspace/ui/components/button";
+import { Edit, Plus, Users } from "lucide-react";
 
-export const Route = createFileRoute('/user-management/')({
+export const Route = createFileRoute("/user-management/")({
   component: UsersPage,
-})
+});
 
 function UsersPage() {
   const users = [
     {
-      id: 'u001',
-      name: '관리자',
-      email: 'admin@example.com',
-      role: '관리자',
-      status: '활성',
-      created: '2024-01-15'
+      id: "u001",
+      name: "관리자",
+      email: "admin@example.com",
+      role: "관리자",
+      status: "활성",
+      created: "2024-01-15",
     },
     {
-      id: 'u002',
-      name: '김선생',
-      email: 'kim@example.com',
-      role: '교사',
-      status: '활성',
-      created: '2024-01-14'
-    }
-  ]
+      id: "u002",
+      name: "김선생",
+      email: "kim@example.com",
+      role: "교사",
+      status: "활성",
+      created: "2024-01-14",
+    },
+  ];
 
   const filterFields = [
     {
-      type: 'select' as const,
-      label: '역할',
-      placeholder: '역할 선택',
+      type: "select" as const,
+      label: "역할",
+      placeholder: "역할 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: 'admin', label: '관리자' },
-        { value: 'teacher', label: '교사' },
-        { value: 'student', label: '학생' }
-      ]
-    }
-  ]
+        { value: "all", label: "전체" },
+        { value: "admin", label: "관리자" },
+        { value: "teacher", label: "교사" },
+        { value: "student", label: "학생" },
+      ],
+    },
+  ];
 
   return (
     <PageContainer>
@@ -51,8 +51,8 @@ function UsersPage() {
         actions={[
           {
             label: "사용자 추가",
-            icon: Plus
-          }
+            icon: Plus,
+          },
         ]}
       />
 
@@ -64,7 +64,7 @@ function UsersPage() {
       />
 
       <div className="space-y-4">
-        {users.map((user) => (
+        {users.map(user => (
           <div key={user.id} className="border rounded-lg p-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -92,5 +92,5 @@ function UsersPage() {
         ))}
       </div>
     </PageContainer>
-  )
+  );
 }

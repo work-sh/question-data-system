@@ -1,22 +1,28 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
-import { 
-  Users, 
+import { PageContainer } from "@/components/PageContainer";
+import { PageHeader } from "@/components/PageHeader";
+import { SearchFilter } from "@/components/SearchFilter";
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@workspace/ui/components/card";
+import {
   Activity,
-  Download,
+  ArrowUpRight,
+  BarChart3,
   Calendar,
   Clock,
+  Download,
   Eye,
-  BarChart3,
-  ArrowUpRight,
-} from "lucide-react"
-import { PageHeader } from '@/components/PageHeader'
-import { PageContainer } from '@/components/PageContainer'
-import { SearchFilter } from '@/components/SearchFilter'
+  Users,
+} from "lucide-react";
 
-export const Route = createFileRoute('/analytic/usage')({
+export const Route = createFileRoute("/analytic/usage")({
   component: UsageStatsPage,
-})
+});
 
 function UsageStatsPage() {
   // 임시 데이터
@@ -26,8 +32,8 @@ function UsageStatsPage() {
     totalSessions: 3420,
     avgSessionDuration: 24.5,
     totalDownloads: 1560,
-    totalViews: 8930
-  }
+    totalViews: 8930,
+  };
 
   const dailyUsage = [
     {
@@ -35,142 +41,142 @@ function UsageStatsPage() {
       activeUsers: 45,
       sessions: 67,
       downloads: 23,
-      views: 156
+      views: 156,
     },
     {
       date: "2024-01-14",
       activeUsers: 42,
       sessions: 61,
       downloads: 19,
-      views: 142
+      views: 142,
     },
     {
       date: "2024-01-13",
       activeUsers: 38,
       sessions: 54,
       downloads: 31,
-      views: 178
+      views: 178,
     },
     {
       date: "2024-01-12",
       activeUsers: 41,
       sessions: 58,
       downloads: 27,
-      views: 165
+      views: 165,
     },
     {
       date: "2024-01-11",
       activeUsers: 39,
       sessions: 52,
       downloads: 22,
-      views: 148
+      views: 148,
     },
     {
       date: "2024-01-10",
       activeUsers: 35,
       sessions: 48,
       downloads: 18,
-      views: 134
+      views: 134,
     },
     {
       date: "2024-01-09",
       activeUsers: 43,
       sessions: 63,
       downloads: 25,
-      views: 172
-    }
-  ]
+      views: 172,
+    },
+  ];
 
   const featureUsage = [
     {
       feature: "문항 관리",
       usage: 89.2,
       users: 218,
-      change: 12.5
+      change: 12.5,
     },
     {
       feature: "평가세트 관리",
       usage: 76.8,
       users: 188,
-      change: 8.3
+      change: 8.3,
     },
     {
       feature: "통계 조회",
       usage: 65.4,
       users: 160,
-      change: 15.7
+      change: 15.7,
     },
     {
       feature: "템플릿 관리",
       usage: 54.2,
       users: 133,
-      change: -2.1
+      change: -2.1,
     },
     {
       feature: "데이터베이스 관리",
       usage: 42.8,
       users: 105,
-      change: 5.9
-    }
-  ]
+      change: 5.9,
+    },
+  ];
 
   const userActivity = [
     {
       timeSlot: "00:00-04:00",
       users: 12,
-      percentage: 6.4
+      percentage: 6.4,
     },
     {
       timeSlot: "04:00-08:00",
       users: 23,
-      percentage: 12.2
+      percentage: 12.2,
     },
     {
       timeSlot: "08:00-12:00",
       users: 67,
-      percentage: 35.4
+      percentage: 35.4,
     },
     {
       timeSlot: "12:00-16:00",
       users: 45,
-      percentage: 23.8
+      percentage: 23.8,
     },
     {
       timeSlot: "16:00-20:00",
       users: 32,
-      percentage: 16.9
+      percentage: 16.9,
     },
     {
       timeSlot: "20:00-24:00",
       users: 10,
-      percentage: 5.3
-    }
-  ]
+      percentage: 5.3,
+    },
+  ];
 
   const filterFields = [
     {
-      type: 'select' as const,
-      label: '사용자 유형',
-      placeholder: '사용자 유형 선택',
+      type: "select" as const,
+      label: "사용자 유형",
+      placeholder: "사용자 유형 선택",
       options: [
-        { value: 'all', label: '전체' },
-        { value: 'active', label: '활성 사용자' },
-        { value: 'inactive', label: '비활성 사용자' },
-        { value: 'new', label: '신규 사용자' }
-      ]
+        { value: "all", label: "전체" },
+        { value: "active", label: "활성 사용자" },
+        { value: "inactive", label: "비활성 사용자" },
+        { value: "new", label: "신규 사용자" },
+      ],
     },
     {
-      type: 'select' as const,
-      label: '기간',
-      placeholder: '기간 선택',
+      type: "select" as const,
+      label: "기간",
+      placeholder: "기간 선택",
       options: [
-        { value: 'today', label: '오늘' },
-        { value: 'week', label: '이번 주' },
-        { value: 'month', label: '이번 달' },
-        { value: 'custom', label: '사용자 정의' }
-      ]
-    }
-  ]
+        { value: "today", label: "오늘" },
+        { value: "week", label: "이번 주" },
+        { value: "month", label: "이번 달" },
+        { value: "custom", label: "사용자 정의" },
+      ],
+    },
+  ];
 
   return (
     <PageContainer>
@@ -181,12 +187,12 @@ function UsageStatsPage() {
           {
             label: "기간 설정",
             icon: Calendar,
-            variant: "outline"
+            variant: "outline",
           },
           {
             label: "리포트 다운로드",
-            icon: Download
-          }
+            icon: Download,
+          },
         ]}
       />
 
@@ -217,7 +223,9 @@ function UsageStatsPage() {
             <Activity className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{usageStats.totalSessions.toLocaleString()}</div>
+            <div className="text-2xl font-bold">
+              {usageStats.totalSessions.toLocaleString()}
+            </div>
             <p className="text-xs text-muted-foreground flex items-center">
               <ArrowUpRight className="h-3 w-3 mr-1 text-green-600" />
               +8% 지난 주 대비
@@ -227,11 +235,15 @@ function UsageStatsPage() {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">평균 세션 시간</CardTitle>
+            <CardTitle className="text-sm font-medium">
+              평균 세션 시간
+            </CardTitle>
             <Clock className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{usageStats.avgSessionDuration}분</div>
+            <div className="text-2xl font-bold">
+              {usageStats.avgSessionDuration}분
+            </div>
             <p className="text-xs text-muted-foreground flex items-center">
               <ArrowUpRight className="h-3 w-3 mr-1 text-green-600" />
               +3.2% 지난 주 대비
@@ -245,7 +257,9 @@ function UsageStatsPage() {
             <Download className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{usageStats.totalDownloads.toLocaleString()}</div>
+            <div className="text-2xl font-bold">
+              {usageStats.totalDownloads.toLocaleString()}
+            </div>
             <p className="text-xs text-muted-foreground flex items-center">
               <ArrowUpRight className="h-3 w-3 mr-1 text-green-600" />
               +15% 지난 주 대비
@@ -259,7 +273,9 @@ function UsageStatsPage() {
             <Eye className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{usageStats.totalViews.toLocaleString()}</div>
+            <div className="text-2xl font-bold">
+              {usageStats.totalViews.toLocaleString()}
+            </div>
             <p className="text-xs text-muted-foreground flex items-center">
               <ArrowUpRight className="h-3 w-3 mr-1 text-green-600" />
               +22% 지난 주 대비
@@ -328,9 +344,7 @@ function UsageStatsPage() {
         <Card>
           <CardHeader>
             <CardTitle>기능별 사용 현황</CardTitle>
-            <CardDescription>
-              각 기능의 사용률과 사용자 수
-            </CardDescription>
+            <CardDescription>각 기능의 사용률과 사용자 수</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -339,19 +353,24 @@ function UsageStatsPage() {
                   <div className="flex items-center justify-between">
                     <span className="font-medium">{feature.feature}</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-muted-foreground">{feature.users}명</span>
-                      <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent ${
-                        feature.change > 0 
-                          ? 'bg-green-100 text-green-800 hover:bg-green-200' 
-                          : 'bg-red-100 text-red-800 hover:bg-red-200'
-                      }`}>
-                        {feature.change > 0 ? '+' : ''}{feature.change}%
+                      <span className="text-sm text-muted-foreground">
+                        {feature.users}명
+                      </span>
+                      <span
+                        className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent ${
+                          feature.change > 0
+                            ? "bg-green-100 text-green-800 hover:bg-green-200"
+                            : "bg-red-100 text-red-800 hover:bg-red-200"
+                        }`}
+                      >
+                        {feature.change > 0 ? "+" : ""}
+                        {feature.change}%
                       </span>
                     </div>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div 
-                      className="bg-blue-600 h-2 rounded-full transition-all duration-300" 
+                    <div
+                      className="bg-blue-600 h-2 rounded-full transition-all duration-300"
                       style={{ width: `${feature.usage}%` }}
                     ></div>
                   </div>
@@ -367,9 +386,7 @@ function UsageStatsPage() {
         <Card>
           <CardHeader>
             <CardTitle>시간대별 사용 현황</CardTitle>
-            <CardDescription>
-              하루 중 시간대별 사용자 활동 분포
-            </CardDescription>
+            <CardDescription>하루 중 시간대별 사용자 활동 분포</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -378,13 +395,17 @@ function UsageStatsPage() {
                   <div className="flex items-center justify-between">
                     <span className="font-medium">{activity.timeSlot}</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-muted-foreground">{activity.users}명</span>
-                      <span className="text-sm text-muted-foreground">({activity.percentage}%)</span>
+                      <span className="text-sm text-muted-foreground">
+                        {activity.users}명
+                      </span>
+                      <span className="text-sm text-muted-foreground">
+                        ({activity.percentage}%)
+                      </span>
                     </div>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div 
-                      className="bg-green-600 h-2 rounded-full transition-all duration-300" 
+                    <div
+                      className="bg-green-600 h-2 rounded-full transition-all duration-300"
                       style={{ width: `${activity.percentage}%` }}
                     ></div>
                   </div>
@@ -399,9 +420,7 @@ function UsageStatsPage() {
       <Card>
         <CardHeader>
           <CardTitle>사용자 행동 분석</CardTitle>
-          <CardDescription>
-            사용자의 주요 활동 패턴과 선호도
-          </CardDescription>
+          <CardDescription>사용자의 주요 활동 패턴과 선호도</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-6 md:grid-cols-3">
@@ -424,5 +443,5 @@ function UsageStatsPage() {
         </CardContent>
       </Card>
     </PageContainer>
-  )
+  );
 }
