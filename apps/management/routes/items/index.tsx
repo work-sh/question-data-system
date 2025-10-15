@@ -2,7 +2,7 @@ import { PageContainer } from "@/components/PageContainer";
 import { PageHeader } from "@/components/PageHeader";
 import { SearchFilter } from "@/components/SearchFilter";
 import { useQuestions } from "@/hooks";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import {
   Card,
   CardContent,
@@ -18,6 +18,7 @@ export const Route = createFileRoute("/items/")({
 
 function Questions() {
   const { data: questions, isLoading, error } = useQuestions();
+  const navigate = useNavigate();
 
   const filterFields = [
     {
@@ -53,6 +54,7 @@ function Questions() {
           {
             label: "문항 추가",
             icon: Plus,
+            onClick: () => navigate({ to: "/items/create" }),
           },
         ]}
       />

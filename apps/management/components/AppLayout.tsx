@@ -1,3 +1,4 @@
+import { useQuestionActions, useQuestionLayout } from "@/hooks";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,20 +13,19 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@workspace/ui/components/sidebar";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { AppSidebar } from "./AppSidebar";
+import { QuestionEditSidebar } from "./QuestionEditSidebar";
+import { QuestionToolbar } from "./QuestionToolbar";
 
 interface AppLayoutProps {
   children: ReactNode;
 }
 
 export function AppLayout({ children }: AppLayoutProps) {
-  const [isQuestionSidebarCollapsed, setIsQuestionSidebarCollapsed] =
-    useState(false);
-
-  const toggleQuestionSidebar = () => {
-    setIsQuestionSidebarCollapsed(!isQuestionSidebarCollapsed);
-  };
+  const { isItemsPage, isQuestionSidebarCollapsed, toggleQuestionSidebar } =
+    useQuestionLayout();
+  const { handlePreview, handleShare } = useQuestionActions();
 
   return (
     <SidebarProvider className="bg-sidebar">
@@ -53,54 +53,24 @@ export function AppLayout({ children }: AppLayoutProps) {
             </Breadcrumb>
           </div>
 
-          {/* TODO : 노출 여부 체크 */}
-          {/* <div className="flex gap-2 mr-2">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="outline" className="flex-1">
-                  <Eye className="w-4 h-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>문항 미리보기</p>
-              </TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="outline" className="flex-1">
-                  <Share className="w-4 h-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>문항 공유</p>
-              </TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="flex-1"
-                  onClick={toggleQuestionSidebar}
-                >
-                  {isQuestionSidebarCollapsed ? (
-                    <ChevronLeft className="w-4 h-4" />
-                  ) : (
-                    <ChevronRight className="w-4 h-4" />
-                  )}
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>문항 편집</p>
-              </TooltipContent>
-            </Tooltip>
-          </div> */}
+          {/* 문항 라이브러리 페이지에서만 노출 */}
+          {isItemsPage && (
+            <QuestionToolbar
+              isQuestionSidebarCollapsed={isQuestionSidebarCollapsed}
+              onToggleQuestionSidebar={toggleQuestionSidebar}
+              onPreview={handlePreview}
+              onShare={handleShare}
+            />
+          )}
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">{children}</div>
       </SidebarInset>
 
-      {/* TODO : 노출 여부 체크 */}
+      {/* 문항 라이브러리 페이지에서만 노출 */}
       {/* 우측 문항 편집 사이드바 */}
-      {/* <QuestionEditSidebar isCollapsed={isQuestionSidebarCollapsed} /> */}
+      {isItemsPage && (
+        <QuestionEditSidebar isCollapsed={isQuestionSidebarCollapsed} />
+      )}
     </SidebarProvider>
   );
 }
